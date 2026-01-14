@@ -63,29 +63,29 @@
   </style>
 
   <script>
-  function switchLang(lang){
-    // toggle content blocks
-    document.querySelectorAll('[data-lang]').forEach(el=>{
-      el.style.display = el.dataset.lang === lang ? 'block' : 'none';
-    });
+    function switchLang(lang){
+      // toggle content blocks
+      document.querySelectorAll('[data-lang]').forEach(el=>{
+        el.style.display = el.dataset.lang === lang ? 'block' : 'none';
+      });
 
-    // toggle language button style
-    document.querySelectorAll('.lang-switch span').forEach(el=>{
-      el.classList.remove('active');
-    });
-    document.getElementById('btn-' + lang).classList.add('active');
+      // toggle language button style
+      document.querySelectorAll('.lang-switch span').forEach(el=>{
+        el.classList.remove('active');
+      });
+      document.getElementById('btn-' + lang).classList.add('active');
 
-    // toggle name
-    document.querySelectorAll('[data-name]').forEach(el=>{
-      el.style.display = (el.dataset.name === lang) ? 'inline' : 'none';
-    });
-  }
+      // toggle name
+      document.querySelectorAll('[data-name]').forEach(el=>{
+        el.style.display = (el.dataset.name === lang) ? 'inline' : 'none';
+      });
+    }
 
-  // default language: English
-  window.onload = function(){
-    switchLang('en');
-  }
-</script>
+    // default language: English
+    window.onload = function(){
+      switchLang('en');
+    }
+  </script>
 
 </head>
 
@@ -101,25 +101,27 @@
   <span data-name="zh">秦一航</span>
 </h1>
 
-
 <div class="contact">
   Email: <a href="mailto:qyh_2024@sjtu.edu.cn">qyh_2024@sjtu.edu.cn</a><br>
-  GitHub: <a href="https://github.com/Echo-2020-Q">Echo-2020-Q</a><br>
-  Web: <a href="https://echo-2020-q.github.io">https://echo-2020-q.github.io</a>
+  Google Email: <a href="mailto:zhuyongxue15@gmail.com">zhuyongxue15@gmail.com</a><br>
+  GitHub: <a href="https://github.com/Echo-2020-Q" target="_blank" rel="noopener noreferrer">Echo-2020-Q</a><br>
+  Web: <a href="https://echo-2020-q.github.io" target="_blank" rel="noopener noreferrer">https://echo-2020-q.github.io</a>
 </div>
 
 <!-- ================= ENGLISH ================= -->
-<div data-lang="en">
+<div data-lang="en" lang="en">
 
 <h2>About Me</h2>
 <p>
-Hi, I'm Qin Yihang, currently pursuing a master's degree at the Complex Networks and Control Lab.
+Hi, I'm Qin Yihang, currently pursuing a master's degree at the
+<a href="https://cnc.sjtu.edu.cn/" target="_blank" rel="noopener noreferrer">Complex Networks and Control Lab</a>.
 My research focuses on promoting cooperation through artificial intelligence,
 particularly deep reinforcement learning and evolutionary game theory.
 My interests include evolutionary game simulations
 and human-subject behavioral experiments.
 I hope my research can contribute to the natural sciences in human society!
-If you feel we share similar interests, feel free to reach out for discussion~
+If you feel we share similar interests,
+<a href="mailto:zhuyongxue15@gmail.com">feel free to reach out</a> for discussion~
 </p>
 
 <h2>Education</h2>
@@ -128,13 +130,21 @@ If you feel we share similar interests, feel free to reach out for discussion~
     <b>Shanghai Jiao Tong University</b>, M.Sc. in Automation
     <span class="item-meta">2024 – Present</span>
     <div class="clear"></div>
-    <span class="small">Supervisor: Prof. Lin Wang · Reinforcement Learning & Evolutionary Game Theory</span>
+    <span class="small">
+      Supervisor:
+      <a href="https://cnc.sjtu.edu.cn/lwang.html" target="_blank" rel="noopener noreferrer">Prof. Lin Wang</a>
+      · Reinforcement Learning &amp; Evolutionary Game Theory
+    </span>
   </li>
   <li>
     <b>Harbin Institute of Technology (Shenzhen)</b>, B.Sc. in Automation
     <span class="item-meta">2020 – 2024</span>
     <div class="clear"></div>
-    <span class="small">Supervisor: Prof. Zilu Wang · Memristor-based Neuromorphic Intelligence</span>
+    <span class="small">
+      Supervisor:
+      <a href="https://homepage.hit.edu.cn/ZiluWANG" target="_blank" rel="noopener noreferrer">Prof. Zilu Wang</a>
+      · Memristor-based Neuromorphic Intelligence
+    </span>
   </li>
 </ul>
 
@@ -155,32 +165,39 @@ If you feel we share similar interests, feel free to reach out for discussion~
 <h2>Publications</h2>
 <ul>
   <li>
-    Qin, Y., Chen, H., & Wang, L. (2025).
-    <b>An Tripartite Evolutionary Game Analysis of the “Siege Wei to Rescue Zhao” Strategy</b>.
+    Qin, Y., Chen, H., &amp; Wang, L. (2025).
+    <a href="https://ieeexplore.ieee.org/abstract/document/11179046" target="_blank" rel="noopener noreferrer">
+      <b>An Tripartite Evolutionary Game Analysis of the “Siege Wei to Rescue Zhao” Strategy</b>
+    </a>.
     <i>Proceedings of the 44th Chinese Control Conference (CCC)</i>, IEEE.
   </li>
 </ul>
 
-<h2>Research Projects & Experience</h2>
+<h2>Research Projects &amp; Experience</h2>
 <ul>
   <li>
-    <b>Multi-Agent UAV Adversarial Reinforcement Learning</b> (Competition-based Project)<br>
+    <b>Multi-Agent UAV Adversarial Reinforcement Learning</b>
+    (<a href="https://sic.c2.org.cn/h-col-104.html" target="_blank" rel="noopener noreferrer">Competition-based Project</a>)<br>
     – Designed RL-based UAV confrontation strategies using RflySim.<br>
-    – National Intelligent Swarm Challenge (Air Track), <b>First Prize</b>, 2025.
+    – National Intelligent Swarm Challenge (Air Track),
+      <a href="https://sic.c2.org.cn/h-col-108.html" target="_blank" rel="noopener noreferrer"><b>First Prize</b></a>, 2025.
   </li>
 </ul>
 
 </div>
 
 <!-- ================= CHINESE ================= -->
-<div data-lang="zh">
+<div data-lang="zh" lang="zh-CN">
 
 <h2>关于我</h2>
 <p>
-嗨，我是秦一航，现于复杂网络与控制实验室就读硕士。研究兴趣聚焦于通过人工智能（尤其是深度强化学习）
+嗨，我是秦一航，现于
+<a href="https://cnc.sjtu.edu.cn/" target="_blank" rel="noopener noreferrer">复杂网络与控制实验室</a>
+就读硕士。研究兴趣聚焦于通过人工智能（尤其是深度强化学习）
 促进合作行为的形成与维持，相关工作包括演化博弈建模与仿真，以及面向人类行为的实验研究。
 希望我的研究能为人类社会的自然科学研究做出贡献！
-如果你觉得我们志趣相同，欢迎交流讨论~
+如果你觉得我们志趣相同，欢迎
+<a href="mailto:zhuyongxue15@gmail.com">邮件交流讨论</a>~
 </p>
 
 <h2>教育经历</h2>
@@ -189,13 +206,21 @@ If you feel we share similar interests, feel free to reach out for discussion~
     <b>上海交通大学</b> · 自动化系 · 硕士
     <span class="item-meta">2024 – 至今</span>
     <div class="clear"></div>
-    <span class="small">导师：王琳教授 · 强化学习 × 演化博弈</span>
+    <span class="small">
+      导师：
+      <a href="https://cnc.sjtu.edu.cn/lwang.html" target="_blank" rel="noopener noreferrer">王琳教授</a>
+      · 强化学习 × 演化博弈
+    </span>
   </li>
   <li>
     <b>哈尔滨工业大学（深圳）</b> · 自动化系 · 学士
     <span class="item-meta">2020 – 2024</span>
     <div class="clear"></div>
-    <span class="small">导师：王紫璐教授 · 基于忆阻器的类脑智能</span>
+    <span class="small">
+      导师：
+      <a href="https://homepage.hit.edu.cn/ZiluWANG" target="_blank" rel="noopener noreferrer">王紫璐教授</a>
+      · 基于忆阻器的类脑智能
+    </span>
   </li>
 </ul>
 
@@ -216,8 +241,10 @@ If you feel we share similar interests, feel free to reach out for discussion~
 <h2>已发表论文</h2>
 <ul>
   <li>
-   Qin, Y., Chen, H., & Wang, L. (2025).
-    <b>An Tripartite Evolutionary Game Analysis of the “Siege Wei to Rescue Zhao” Strategy</b>.
+    Qin, Y., Chen, H., &amp; Wang, L. (2025).
+    <a href="https://ieeexplore.ieee.org/abstract/document/11179046" target="_blank" rel="noopener noreferrer">
+      <b>An Tripartite Evolutionary Game Analysis of the “Siege Wei to Rescue Zhao” Strategy</b>
+    </a>.
     <i>Proceedings of the 44th Chinese Control Conference (CCC)</i>, IEEE.
   </li>
 </ul>
@@ -225,9 +252,10 @@ If you feel we share similar interests, feel free to reach out for discussion~
 <h2>研究项目与经历</h2>
 <ul>
   <li>
-    <b>多智能体无人机对抗强化学习</b>（竞赛项目）<br>
+    <b>多智能体无人机对抗强化学习</b>（<a href="https://sic.c2.org.cn/h-col-104.html" target="_blank" rel="noopener noreferrer">竞赛项目</a>）<br>
     – 基于 RflySim 设计强化学习无人机对抗策略<br>
-    – 全国智能集群挑战赛（空中赛道）一等奖，2025
+    – 全国智能集群挑战赛（空中赛道）
+      <a href="https://sic.c2.org.cn/h-col-108.html" target="_blank" rel="noopener noreferrer"><b>一等奖</b></a>，2025
   </li>
 </ul>
 
