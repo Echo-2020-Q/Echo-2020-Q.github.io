@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>秦一航（Yihang Qin） - Academic CV</title>
+  <title>Yihang Qin - Academic CV</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
@@ -20,10 +20,6 @@
       margin: 0 0 8px 0;
       font-weight: 700;
     }
-    .subline{
-      margin: 0 0 18px 0;
-      color: #333;
-    }
     h2{
       font-size: 22px;
       margin-top: 34px;
@@ -37,9 +33,7 @@
     ul{ padding-left: 1.2em; margin: 10px 0 0 0; }
     li{ margin: 8px 0; }
 
-    .contact{
-      margin: 0 0 18px 0;
-    }
+    .contact{ margin: 0 0 18px 0; }
     .muted{ color:#444; }
     .item-meta{
       float: right;
@@ -49,78 +43,176 @@
     .clear{ clear: both; }
     .small{ font-size: 0.95em; color:#333; }
     .section-note{ margin-top: 8px; color:#333; }
+
+    /* language switch */
+    .lang-switch{
+      position: fixed;
+      top: 20px;
+      right: 30px;
+      font-size: 14px;
+    }
+    .lang-switch span{
+      cursor: pointer;
+      margin-left: 8px;
+      color: #555;
+    }
+    .lang-switch span.active{
+      font-weight: bold;
+      color: #000;
+    }
   </style>
+
+  <script>
+    function switchLang(lang){
+      document.querySelectorAll('[data-lang]').forEach(el=>{
+        el.style.display = el.dataset.lang === lang ? 'block' : 'none';
+      });
+      document.querySelectorAll('.lang-switch span').forEach(el=>{
+        el.classList.remove('active');
+      });
+      document.getElementById('btn-' + lang).classList.add('active');
+    }
+
+    // default language: English
+    window.onload = function(){
+      switchLang('en');
+    }
+  </script>
 </head>
 
 <body>
 
-  <h1>秦一航 <span class="muted">(Yihang Qin)</span></h1>
-  <div class="contact">
-    Email: <a href="mailto:qyh_2024@sjtu.edu.cn">qyh_2024@sjtu.edu.cn</a><br>
-    GitHub: <a href="https://github.com/Echo-2020-Q">Echo-2020-Q</a><br>
-    Web: <a href="https://echo-2020-q.github.io">https://echo-2020-q.github.io</a>
-  </div>
+<div class="lang-switch">
+  <span id="btn-en" onclick="switchLang('en')">EN</span> |
+  <span id="btn-zh" onclick="switchLang('zh')">中文</span>
+</div>
 
-  <h2>关于我</h2>
-  <p>
-    嗨，我是秦一航，现在就读于上海交通大学自动化系硕士。研究兴趣聚焦于通过人工智能（尤其是深度强化学习）
-    促进合作行为的形成与维持，相关工作包括演化博弈建模与仿真，以及面向人类行为的实验研究设计。
-  </p>
+<h1>秦一航 <span class="muted">(Yihang Qin)</span></h1>
 
-  <h2>教育经历</h2>
-  <ul>
-    <li>
-      <span><b>上海交通大学</b> · 自动化系 · 硕士</span>
-      <span class="item-meta">2024 – Present</span>
-      <div class="clear"></div>
-      <span class="small">导师：王琳老师 · 研究方向：强化学习 × 演化博弈</span>
-    </li>
-    <li>
-      <span><b>哈尔滨工业大学（深圳）</b> · 自动化系 · 学士</span>
-      <span class="item-meta">2020 – 2024</span>
-      <div class="clear"></div>
-      <span class="small">导师：王紫璐老师 · 研究方向：基于忆阻器的类脑智能</span>
-    </li>
-  </ul>
+<div class="contact">
+  Email: <a href="mailto:qyh_2024@sjtu.edu.cn">qyh_2024@sjtu.edu.cn</a><br>
+  GitHub: <a href="https://github.com/Echo-2020-Q">Echo-2020-Q</a><br>
+  Web: <a href="https://echo-2020-q.github.io">https://echo-2020-q.github.io</a>
+</div>
 
-  <h2>在投论文</h2>
-  <ul>
-    <li>
-      <b>A Tripartite Intervention–Conflict Game with Frequency-Adjusted Q-learning</b><br>
-      Y. Qin, Hao Chen, L. Wang<br>
-      <i>Submitted to Applied Mathematical Modelling</i>, 2025.
-    </li>
-    <li>
-      <b>Recovering Cooperation in Spatial Prisoner’s Dilemma via a Forced Loner Mechanism</b><br>
-      Y. Qin, Hao Chen, L. Wang<br>
-      <i>Submitted to Physica A: Statistical Mechanics and its Applications</i>, 2025.
-    </li>
-  </ul>
+<!-- ================= ENGLISH ================= -->
+<div data-lang="en">
 
-  <h2>已发表</h2>
-  <p class="section-note"><b>会议</b></p>
-  <ul>
-    <li>
-      Qin, Y., Chen, H., &amp; Wang, L. (2025, July).
-      <b>An Tripartite Evolutionary Game Analysis of the ‘Siege Wei to Rescue Zhao’ Strategy</b>.
-      In <i>2025 44th Chinese Control Conference (CCC)</i> (pp. 8458–8463). IEEE.
-    </li>
-  </ul>
+<h2>About Me</h2>
+<p>
+I am an M.Sc. student in Automation at Shanghai Jiao Tong University.
+My research focuses on promoting cooperation through artificial intelligence,
+particularly deep reinforcement learning and evolutionary game theory.
+My interests include spatial evolutionary game simulations
+and human-subject behavioral experiments.
+</p>
 
-  <p class="section-note"><b>期刊</b> <span class="muted">(to be updated)</span></p>
-  <ul>
-    <li class="muted">—</li>
-  </ul>
+<h2>Education</h2>
+<ul>
+  <li>
+    <b>Shanghai Jiao Tong University</b>, M.Sc. in Automation
+    <span class="item-meta">2024 – Present</span>
+    <div class="clear"></div>
+    <span class="small">Supervisor: Prof. Lin Wang · Reinforcement Learning & Evolutionary Game Theory</span>
+  </li>
+  <li>
+    <b>Harbin Institute of Technology (Shenzhen)</b>, B.Sc. in Automation
+    <span class="item-meta">2020 – 2024</span>
+    <div class="clear"></div>
+    <span class="small">Supervisor: Prof. Zilu Wang · Memristor-based Neuromorphic Intelligence</span>
+  </li>
+</ul>
 
-  <h2>研究项目和经历</h2>
-  <ul>
-    <li>
-      <b>Multi-Agent UAV Adversarial Learning</b> <span class="muted">(Competition-based Project)</span><br>
-      – Designed reinforcement learning–based UAV confrontation strategies using RflySim.<br>
-      – National Intelligent Swarm Challenge (Air Track), <b>First Prize</b>, 2024.
-    </li>
-  </ul>
+<h2>Manuscripts Under Review</h2>
+<ul>
+  <li>
+    <b>A Tripartite Intervention–Conflict Game with Frequency-Adjusted Q-learning</b><br>
+    Y. Qin, H. Chen, L. Wang<br>
+    <i>Submitted to Applied Mathematical Modelling</i>, 2025.
+  </li>
+  <li>
+    <b>Recovering Cooperation in Spatial Prisoner’s Dilemma via a Forced Loner Mechanism</b><br>
+    Y. Qin, H. Chen, L. Wang<br>
+    <i>Submitted to Physica A</i>, 2025.
+  </li>
+</ul>
+
+<h2>Publications</h2>
+<ul>
+  <li>
+    Qin, Y., Chen, H., & Wang, L. (2025).
+    <b>An Tripartite Evolutionary Game Analysis of the “Siege Wei to Rescue Zhao” Strategy</b>.
+    <i>Proceedings of the 44th Chinese Control Conference (CCC)</i>, IEEE.
+  </li>
+</ul>
+
+<h2>Research Projects & Experience</h2>
+<ul>
+  <li>
+    <b>Multi-Agent UAV Adversarial Learning</b> (Competition-based Project)<br>
+    – Designed RL-based UAV confrontation strategies using RflySim.<br>
+    – National Intelligent Swarm Challenge (Air Track), <b>First Prize</b>, 2024.
+  </li>
+</ul>
+
+</div>
+
+<!-- ================= CHINESE ================= -->
+<div data-lang="zh">
+
+<h2>关于我</h2>
+<p>
+我是上海交通大学自动化系硕士生，研究兴趣聚焦于通过人工智能（尤其是深度强化学习）
+促进合作行为的形成与维持，相关工作包括演化博弈建模与仿真，以及面向人类行为的实验研究。
+</p>
+
+<h2>教育经历</h2>
+<ul>
+  <li>
+    <b>上海交通大学</b> · 自动化系 · 硕士
+    <span class="item-meta">2024 – 至今</span>
+    <div class="clear"></div>
+    <span class="small">导师：王琳 · 强化学习 × 演化博弈</span>
+  </li>
+  <li>
+    <b>哈尔滨工业大学（深圳）</b> · 自动化系 · 学士
+    <span class="item-meta">2020 – 2024</span>
+    <div class="clear"></div>
+    <span class="small">导师：王紫璐 · 基于忆阻器的类脑智能</span>
+  </li>
+</ul>
+
+<h2>在投论文</h2>
+<ul>
+  <li>
+    <b>A Tripartite Intervention–Conflict Game with Frequency-Adjusted Q-learning</b><br>
+    Submitted to Applied Mathematical Modelling, 2025.
+  </li>
+  <li>
+    <b>Recovering Cooperation in Spatial Prisoner’s Dilemma via a Forced Loner Mechanism</b><br>
+    Submitted to Physica A, 2025.
+  </li>
+</ul>
+
+<h2>已发表论文</h2>
+<ul>
+  <li>
+    秦一航，陈浩，王琳（2025）.
+    <b>“围魏救赵”策略的三方演化博弈分析</b>.
+    中国控制会议（CCC），IEEE.
+  </li>
+</ul>
+
+<h2>研究项目与经历</h2>
+<ul>
+  <li>
+    <b>多智能体无人机对抗学习</b>（竞赛项目）<br>
+    – 基于 RflySim 设计强化学习无人机对抗策略<br>
+    – 全国智能集群挑战赛（空中赛道）一等奖，2024
+  </li>
+</ul>
+
+</div>
 
 </body>
 </html>
-```
