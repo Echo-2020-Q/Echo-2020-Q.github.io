@@ -63,21 +63,30 @@
   </style>
 
   <script>
-    function switchLang(lang){
-      document.querySelectorAll('[data-lang]').forEach(el=>{
-        el.style.display = el.dataset.lang === lang ? 'block' : 'none';
-      });
-      document.querySelectorAll('.lang-switch span').forEach(el=>{
-        el.classList.remove('active');
-      });
-      document.getElementById('btn-' + lang).classList.add('active');
-    }
+  function switchLang(lang){
+    // toggle content blocks
+    document.querySelectorAll('[data-lang]').forEach(el=>{
+      el.style.display = el.dataset.lang === lang ? 'block' : 'none';
+    });
 
-    // default language: English
-    window.onload = function(){
-      switchLang('en');
-    }
-  </script>
+    // toggle language button style
+    document.querySelectorAll('.lang-switch span').forEach(el=>{
+      el.classList.remove('active');
+    });
+    document.getElementById('btn-' + lang).classList.add('active');
+
+    // toggle name
+    document.querySelectorAll('[data-name]').forEach(el=>{
+      el.style.display = (el.dataset.name === lang) ? 'inline' : 'none';
+    });
+  }
+
+  // default language: English
+  window.onload = function(){
+    switchLang('en');
+  }
+</script>
+
 </head>
 
 <body>
@@ -87,7 +96,11 @@
   <span id="btn-zh" onclick="switchLang('zh')">中文</span>
 </div>
 
-<h1>秦一航 <span class="muted">(Yihang Qin)</span></h1>
+<h1>
+  <span data-name="en">Yihang Qin</span>
+  <span data-name="zh">秦一航</span>
+</h1>
+
 
 <div class="contact">
   Email: <a href="mailto:qyh_2024@sjtu.edu.cn">qyh_2024@sjtu.edu.cn</a><br>
