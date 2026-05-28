@@ -1,0 +1,4 @@
+type = "publication"
+title = "Publications"
+description = "Published papers, submitted manuscripts, and planned research directions on cooperation, evolutionary games, and artificial intelligence."
+source = "publications.bib"

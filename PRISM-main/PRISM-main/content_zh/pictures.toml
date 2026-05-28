@@ -1,0 +1,24 @@
+type = "card"
+title = "图片"
+description = "为个人照片、论文配图、文章封面或会议照片预留的视觉展示区域。"
+
+[[items]]
+title = "个人照片"
+subtitle = "首页头像"
+date = "Profile"
+content = "![个人照片](/Page_Photo2.jpg)"
+tags = ["Profile"]
+
+[[items]]
+title = "主图位置"
+subtitle = "适合放论文图或研究封面"
+date = "Gallery"
+content = "![主图](/Page_Photo.jpg)"
+tags = ["研究配图"]
+
+[[items]]
+title = "论文配图位置"
+subtitle = "适合放 AMM、Physica A 或其他稿件配图"
+date = "Gallery"
+content = "![论文配图](/Page_Photo1.jpg)"
+tags = ["论文配图"]

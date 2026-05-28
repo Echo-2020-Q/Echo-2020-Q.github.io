@@ -1,0 +1,17 @@
+type = "card"
+title = "Academic Preparation"
+description = "Research training and communication preparation related to my current work."
+
+[[items]]
+title = "IELTS and Academic English"
+subtitle = "International communication preparation"
+date = "Present - 2026.08"
+content = "Improving speaking, writing, and academic expression while maintaining daily research progress."
+tags = ["Language", "Academic Writing"]
+
+[[items]]
+title = "Research Foundation and Technical Training"
+subtitle = "Automation and intelligent systems"
+date = "2020.09 - 2024.06"
+content = "Built the background that later supported work in reinforcement learning, game dynamics, and multi-agent systems."
+tags = ["Foundation", "Automation"]

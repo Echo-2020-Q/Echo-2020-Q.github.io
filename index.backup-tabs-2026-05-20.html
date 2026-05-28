@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Yihang Qin | Homepage</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <script>
+    (function () {
+      var lang = "en";
+      try {
+        var saved = window.localStorage.getItem("preferred-lang");
+        var browserLang = (navigator.language || "").toLowerCase();
+        lang = saved || (browserLang.indexOf("zh") === 0 ? "zh" : "en");
+      } catch (error) {
+        var fallbackLang = (navigator.language || "").toLowerCase();
+        lang = fallbackLang.indexOf("zh") === 0 ? "zh" : "en";
+      }
+      document.documentElement.setAttribute("data-active-lang", lang === "zh" ? "zh" : "en");
+      document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
+    }());
+  </script>
+  <style>
+    :root {
+      --bg: #f4efe6;
+      --bg-deep: #ece3d5;
+      --surface: rgba(255, 252, 247, 0.76);
+      --surface-strong: rgba(255, 252, 247, 0.96);
+      --border: rgba(32, 40, 34, 0.12);
+      --text: #1f2421;
+      --muted: #5f675f;
+      --accent: #2f6f61;
+      --accent-soft: #d8e5dd;
+      --shadow: 0 20px 60px rgba(31, 36, 33, 0.08);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-sm: 14px;
+      --sans: "Avenir Next", "Segoe UI", "Helvetica Neue", sans-serif;
+      --serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, "Noto Serif SC", serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      font-family: var(--serif);
+      line-height: 1.75;
+      background:
+        radial-gradient(circle at top left, rgba(213, 228, 220, 0.85), transparent 30%),
+        radial-gradient(circle at top right, rgba(239, 222, 199, 0.92), transparent 24%),
+        linear-gradient(180deg, #f8f4ed 0%, var(--bg) 55%, var(--bg-deep) 100%);
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page-shell {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 28px 0 72px;
+    }
+
+    .site-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 22px;
+    }
+
+    .brand-mark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: rgba(255, 252, 247, 0.65);
+      box-shadow: var(--shadow);
+      font-family: var(--sans);
+      font-size: 0.86rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .lang-switch {
+      display: inline-flex;
+      padding: 6px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255, 252, 247, 0.72);
+      box-shadow: var(--shadow);
+      gap: 6px;
+    }
+
+    .lang-btn {
+      border: 0;
+      border-radius: 999px;
+      padding: 9px 16px;
+      background: transparent;
+      color: var(--muted);
+      font-family: var(--sans);
+      font-size: 0.92rem;
+      cursor: pointer;
+      transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+    }
+
+    .lang-btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .lang-btn.active {
+      background: var(--accent);
+      color: #f8f5ef;
+    }
+
+    .layout {
+      display: grid;
+      gap: 24px;
+    }
+
+    .panel,
+    .hero-card,
+    .work-card,
+    .status-card {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) 320px;
+      gap: 28px;
+      padding: 32px;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -90px -90px auto;
+      width: 240px;
+      height: 240px;
+      border-radius: 999px;
+      background: rgba(47, 111, 97, 0.08);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-family: var(--sans);
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.6rem, 6vw, 4.8rem);
+      line-height: 0.94;
+      letter-spacing: -0.04em;
+      font-weight: 600;
+    }
+
+    .hero-summary {
+      margin: 18px 0 0;
+      max-width: 62ch;
+      color: var(--muted);
+      font-size: 1.06rem;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: rgba(216, 229, 221, 0.72);
+      color: var(--accent);
+      font-family: var(--sans);
+      font-size: 0.9rem;
+    }
+
+    .hero-links {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .link-pill {
+      display: block;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(255, 252, 247, 0.84);
+      border: 1px solid rgba(32, 40, 34, 0.08);
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .link-pill:hover {
+      transform: translateY(-2px);
+      border-color: rgba(47, 111, 97, 0.24);
+      text-decoration: none;
+    }
+
+    .link-label {
+      display: block;
+      color: var(--muted);
+      font-family: var(--sans);
+      font-size: 0.74rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .link-value {
+      display: block;
+      margin-top: 6px;
+      color: var(--text);
+      font-size: 1rem;
+      line-height: 1.45;
+      word-break: break-word;
+    }
+
+    .hero-side {
+      display: grid;
+      gap: 18px;
+      align-content: start;
+    }
+
+    .portrait-frame {
+      padding: 14px;
+      border-radius: 24px;
+      background: rgba(255, 252, 247, 0.86);
+      border: 1px solid rgba(32, 40, 34, 0.08);
+    }
+
+    .profile-photo {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      border-radius: 18px;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .status-card {
+      border-radius: 24px;
+      padding: 18px 20px;
+      background: rgba(255, 252, 247, 0.84);
+    }
+
+    .status-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .status-card p + p {
+      margin-top: 10px;
+    }
+
+    .info-grid,
+    .work-grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    .info-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .panel {
+      padding: 28px 30px;
+      border-radius: var(--radius-lg);
+    }
+
+    .panel-label,
+    .section-kicker {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .panel-title,
+    h2 {
+      margin: 0;
+      font-size: clamp(1.8rem, 3vw, 2.7rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      font-weight: 600;
+    }
+
+    .compact-list,
+    .work-list {
+      list-style: none;
+      padding: 0;
+      margin: 22px 0 0;
+    }
+
+    .compact-list li,
+    .work-list li {
+      padding: 14px 0;
+      border-top: 1px solid rgba(32, 40, 34, 0.08);
+    }
+
+    .compact-list li:first-child,
+    .work-list li:first-child {
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    .compact-list strong,
+    .work-list strong {
+      display: block;
+      font-size: 1.02rem;
+      line-height: 1.45;
+    }
+
+    .meta-line {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .section-panel {
+      padding: 30px;
+      border-radius: var(--radius-lg);
+    }
+
+    .section-heading {
+      display: grid;
+      gap: 6px;
+      margin-bottom: 24px;
+    }
+
+    .section-body p {
+      margin: 0;
+      max-width: 72ch;
+      color: var(--muted);
+      font-size: 1.04rem;
+    }
+
+    .section-body p + p {
+      margin-top: 16px;
+    }
+
+    .timeline {
+      position: relative;
+      margin-top: 8px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 96px;
+      top: 8px;
+      bottom: 8px;
+      width: 1px;
+      background: linear-gradient(180deg, transparent 0%, rgba(47, 111, 97, 0.34) 10%, rgba(47, 111, 97, 0.34) 90%, transparent 100%);
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 88px 1fr;
+      gap: 28px;
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-date {
+      padding-top: 14px;
+      color: var(--accent);
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .timeline-card {
+      position: relative;
+      padding: 18px 20px;
+      border-radius: 20px;
+      border: 1px solid rgba(32, 40, 34, 0.08);
+      background: rgba(255, 252, 247, 0.86);
+    }
+
+    .timeline-card::before {
+      content: "";
+      position: absolute;
+      left: -26px;
+      top: 22px;
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: var(--accent);
+      border: 3px solid #fbf7f1;
+      box-sizing: border-box;
+      box-shadow: 0 0 0 6px rgba(47, 111, 97, 0.08);
+    }
+
+    .timeline-card h3 {
+      margin: 0;
+      font-size: 1.1rem;
+      line-height: 1.4;
+    }
+
+    .timeline-card p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .timeline-badge {
+      display: inline-flex;
+      margin-top: 14px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(216, 229, 221, 0.72);
+      color: var(--accent);
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .work-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .work-card {
+      padding: 24px;
+      border-radius: 22px;
+    }
+
+    .work-label {
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-family: var(--sans);
+      font-size: 0.76rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .work-title {
+      margin: 0;
+      font-size: 1.34rem;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    .work-list li {
+      font-size: 0.98rem;
+      line-height: 1.7;
+    }
+
+    .work-list a {
+      word-break: break-word;
+    }
+
+    .visitor-frame {
+      margin-top: 18px;
+      overflow: hidden;
+      border-radius: 18px;
+      border: 1px solid rgba(32, 40, 34, 0.08);
+      background: rgba(255, 252, 247, 0.82);
+      padding: 14px;
+    }
+
+    .visitor-note {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .lang-block,
+    .lang-inline,
+    .lang-flex,
+    .lang-grid {
+      display: none;
+    }
+
+    html[data-active-lang="en"] [data-lang="en"].lang-block,
+    html[data-active-lang="zh"] [data-lang="zh"].lang-block {
+      display: block;
+    }
+
+    html[data-active-lang="en"] [data-lang="en"].lang-inline,
+    html[data-active-lang="zh"] [data-lang="zh"].lang-inline {
+      display: inline;
+    }
+
+    html[data-active-lang="en"] [data-lang="en"].lang-flex,
+    html[data-active-lang="zh"] [data-lang="zh"].lang-flex {
+      display: flex;
+    }
+
+    html[data-active-lang="en"] [data-lang="en"].lang-grid,
+    html[data-active-lang="zh"] [data-lang="zh"].lang-grid {
+      display: grid;
+    }
+
+    @media (max-width: 960px) {
+      .hero-card,
+      .info-grid,
+      .work-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-side {
+        max-width: 340px;
+      }
+
+      .hero-links {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 780px) {
+      .page-shell {
+        width: min(100% - 24px, 1120px);
+        padding: 18px 0 56px;
+      }
+
+      .site-header {
+        align-items: flex-start;
+        gap: 16px;
+      }
+
+      .hero-card,
+      .panel,
+      .section-panel,
+      .work-card {
+        padding: 22px;
+      }
+
+      .timeline::before {
+        left: 6px;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding-left: 30px;
+      }
+
+      .timeline-date {
+        padding-top: 0;
+      }
+
+      .timeline-card::before {
+        left: -30px;
+        top: 18px;
+      }
+    }
+  </style>
+  <script>
+    function switchLang(lang) {
+      var safeLang = lang === "zh" ? "zh" : "en";
+      document.documentElement.setAttribute("data-active-lang", safeLang);
+      document.documentElement.lang = safeLang === "zh" ? "zh-CN" : "en";
+      document.title = safeLang === "zh" ? "秦一航 | 个人主页" : "Yihang Qin | Homepage";
+
+      document.querySelectorAll(".lang-btn").forEach(function (button) {
+        var isActive = button.getAttribute("data-target") === safeLang;
+        button.classList.toggle("active", isActive);
+        button.setAttribute("aria-pressed", isActive ? "true" : "false");
+      });
+
+      try {
+        window.localStorage.setItem("preferred-lang", safeLang);
+      } catch (error) {
+        /* Ignore storage errors and keep the current language. */
+      }
+    }
+
+    window.addEventListener("DOMContentLoaded", function () {
+      var current = document.documentElement.getAttribute("data-active-lang") || "en";
+      switchLang(current);
+    });
+  </script>
+</head>
+
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <div class="brand-mark">YQ</div>
+      <div class="lang-switch" aria-label="Language switch">
+        <button class="lang-btn" type="button" data-target="en" aria-pressed="false" onclick="switchLang('en')">EN</button>
+        <button class="lang-btn" type="button" data-target="zh" aria-pressed="false" onclick="switchLang('zh')">中文</button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="hero-card">
+        <div>
+          <p class="eyebrow lang-block" data-lang="en">Master's Student · Reinforcement Learning · Evolutionary Game Theory</p>
+          <p class="eyebrow lang-block" data-lang="zh">硕士研究生 · 强化学习 · 演化博弈</p>
+
+          <h1>
+            <span class="lang-inline" data-lang="en">Yihang Qin</span>
+            <span class="lang-inline" data-lang="zh">秦一航</span>
+          </h1>
+
+          <p class="hero-summary lang-block" data-lang="en">
+            I am a master's student at the Complex Networks and Control Lab of Shanghai Jiao Tong University, working with Prof. Lin Wang on cooperation, strategic interaction, and learning in human and multi-agent systems.
+          </p>
+          <p class="hero-summary lang-block" data-lang="zh">
+            我目前就读于上海交通大学复杂网络与控制实验室，在王琳教授指导下开展研究，关注人类与多智能体系统中的合作行为、策略互动与学习机制。
+          </p>
+
+          <div class="hero-tags">
+            <span class="tag">Deep RL</span>
+            <span class="tag">Cooperation Dynamics</span>
+            <span class="tag">Evolutionary Games</span>
+          </div>
+
+          <div class="hero-links lang-grid" data-lang="en">
+            <a class="link-pill" href="mailto:zhuyongxue15@gmail.com">
+              <span class="link-label">Email</span>
+              <span class="link-value">zhuyongxue15@gmail.com</span>
+            </a>
+            <a class="link-pill" href="https://github.com/Echo-2020-Q" target="_blank" rel="noopener noreferrer">
+              <span class="link-label">GitHub</span>
+              <span class="link-value">Echo-2020-Q</span>
+            </a>
+            <a class="link-pill" href="https://echo-2020-q.github.io" target="_blank" rel="noopener noreferrer">
+              <span class="link-label">Website</span>
+              <span class="link-value">echo-2020-q.github.io</span>
+            </a>
+          </div>
+
+          <div class="hero-links lang-grid" data-lang="zh">
+            <a class="link-pill" href="mailto:zhuyongxue15@gmail.com">
+              <span class="link-label">邮箱</span>
+              <span class="link-value">zhuyongxue15@gmail.com</span>
+            </a>
+            <a class="link-pill" href="https://github.com/Echo-2020-Q" target="_blank" rel="noopener noreferrer">
+              <span class="link-label">GitHub</span>
+              <span class="link-value">Echo-2020-Q</span>
+            </a>
+            <a class="link-pill" href="https://echo-2020-q.github.io" target="_blank" rel="noopener noreferrer">
+              <span class="link-label">主页</span>
+              <span class="link-value">echo-2020-q.github.io</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-side">
+          <div class="portrait-frame">
+            <img src="Page_Photo2.jpg" alt="Yihang Qin" class="profile-photo">
+          </div>
+
+          <div class="status-card">
+            <p class="lang-block" data-lang="en">Currently based in Shanghai, building a research path that connects AI, social dynamics, and real human behavior.</p>
+            <p class="lang-block" data-lang="zh">目前在上海开展研究，希望把人工智能、社会动力学与真实人类行为连接起来。</p>
+            <p class="lang-block" data-lang="en">Open to academic discussion, collaboration, and conversations around cooperation and learning.</p>
+            <p class="lang-block" data-lang="zh">欢迎围绕合作行为、强化学习与学术合作展开交流。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="info-grid">
+        <article class="panel">
+          <p class="panel-label lang-block" data-lang="en">Education</p>
+          <p class="panel-label lang-block" data-lang="zh">教育经历</p>
+          <h2 class="panel-title lang-block" data-lang="en">Academic Training</h2>
+          <h2 class="panel-title lang-block" data-lang="zh">学术训练</h2>
+
+          <ul class="compact-list lang-block" data-lang="en">
+            <li>
+              <strong>Shanghai Jiao Tong University</strong>
+              <span class="meta-line">M.Sc. in Automation · 2024 - Present</span>
+              <span class="meta-line">Advisor: <a href="https://cnc.sjtu.edu.cn/lwang.html" target="_blank" rel="noopener noreferrer">Prof. Lin Wang</a></span>
+            </li>
+            <li>
+              <strong>Harbin Institute of Technology (Shenzhen)</strong>
+              <span class="meta-line">B.Sc. in Automation · 2020 - 2024</span>
+              <span class="meta-line">Advisor: <a href="https://homepage.hit.edu.cn/ZiluWANG" target="_blank" rel="noopener noreferrer">Prof. Zilu Wang</a></span>
+            </li>
+          </ul>
+
+          <ul class="compact-list lang-block" data-lang="zh">
+            <li>
+              <strong>上海交通大学</strong>
+              <span class="meta-line">自动化系硕士 · 2024 - 至今</span>
+              <span class="meta-line">导师：<a href="https://cnc.sjtu.edu.cn/lwang.html" target="_blank" rel="noopener noreferrer">王琳教授</a></span>
+            </li>
+            <li>
+              <strong>哈尔滨工业大学（深圳）</strong>
+              <span class="meta-line">自动化系学士 · 2020 - 2024</span>
+              <span class="meta-line">导师：<a href="https://homepage.hit.edu.cn/ZiluWANG" target="_blank" rel="noopener noreferrer">王紫璐教授</a></span>
+            </li>
+          </ul>
+        </article>
+
+        <article class="panel">
+          <p class="panel-label lang-block" data-lang="en">Selected Highlights</p>
+          <p class="panel-label lang-block" data-lang="zh">成果概览</p>
+          <h2 class="panel-title lang-block" data-lang="en">Recent Outcomes</h2>
+          <h2 class="panel-title lang-block" data-lang="zh">近期成果</h2>
+
+          <ul class="compact-list lang-block" data-lang="en">
+            <li>
+              <strong>CCC 2025 Conference Paper</strong>
+              <span class="meta-line">Tripartite evolutionary game analysis on strategic intervention.</span>
+            </li>
+            <li>
+              <strong>Physica A Paper</strong>
+              <span class="meta-line">Recovering cooperation through a forced loner mechanism.</span>
+            </li>
+            <li>
+              <strong>National First Prize</strong>
+              <span class="meta-line">National Intelligent Swarm Challenge (Air Track), 2025.</span>
+            </li>
+          </ul>
+
+          <ul class="compact-list lang-block" data-lang="zh">
+            <li>
+              <strong>CCC 2025 会议论文</strong>
+              <span class="meta-line">围绕三方演化博弈与策略干预开展研究。</span>
+            </li>
+            <li>
+              <strong>Physica A 论文</strong>
+              <span class="meta-line">关注强制孤立者机制对合作恢复的作用。</span>
+            </li>
+            <li>
+              <strong>全国一等奖</strong>
+              <span class="meta-line">全国智能集群挑战赛空中赛道，2025。</span>
+            </li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="panel section-panel">
+        <div class="section-heading">
+          <p class="section-kicker lang-block" data-lang="en">Profile</p>
+          <p class="section-kicker lang-block" data-lang="zh">简介</p>
+          <h2 class="lang-block" data-lang="en">About Me</h2>
+          <h2 class="lang-block" data-lang="zh">About Me / 关于我</h2>
+        </div>
+
+        <div class="section-body">
+          <div class="lang-block" data-lang="en">
+            <p>
+              Hi, I'm Yihang Qin. My current work centers on how artificial intelligence can promote cooperation, especially through deep reinforcement learning and evolutionary game theory.
+            </p>
+            <p>
+              I am particularly interested in combining formal modeling, simulation, and behavior-oriented experiments to understand how strategic interaction evolves in complex systems. If our interests overlap, I would be happy to connect and discuss ideas.
+            </p>
+          </div>
+
+          <div class="lang-block" data-lang="zh">
+            <p>
+              你好，我是秦一航。目前我的研究主要围绕人工智能如何促进合作展开，尤其关注深度强化学习与演化博弈理论。
+            </p>
+            <p>
+              我希望把形式化建模、仿真分析与面向真实行为的实验研究结合起来，理解复杂系统中的策略互动如何演化。如果你也对这些问题感兴趣，欢迎随时联系我交流。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel section-panel">
+        <div class="section-heading">
+          <p class="section-kicker lang-block" data-lang="en">Now</p>
+          <p class="section-kicker lang-block" data-lang="zh">进行中</p>
+          <h2 class="lang-block" data-lang="en">What I'm Doing</h2>
+          <h2 class="lang-block" data-lang="zh">What I'm Doing / 我最近在做什么</h2>
+        </div>
+
+        <div class="timeline lang-block" data-lang="en">
+          <article class="timeline-item">
+            <div class="timeline-date">2025.11 - 2026.02</div>
+            <div class="timeline-card">
+              <h3>Paper Drafting and Submission</h3>
+              <p>Writing and polishing a manuscript around cooperation dynamics, model design, and numerical validation.</p>
+              <span class="timeline-badge">Writing</span>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-date">2026.03 - 2026.05</div>
+            <div class="timeline-card">
+              <h3>Review Follow-up and Publication Process</h3>
+              <p>Tracking revisions, refining presentation details, and preparing the next stage of related research.</p>
+              <span class="timeline-badge">Publication</span>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-date">2026.05 - 2026.10</div>
+            <div class="timeline-card">
+              <h3>New Manuscript in Preparation</h3>
+              <p>Developing a new paper on AI-enabled cooperation and strategic interaction across agents.</p>
+              <span class="timeline-badge">Research</span>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-date">Present - 2026.08</div>
+            <div class="timeline-card">
+              <h3>IELTS Preparation and Academic English</h3>
+              <p>Improving speaking, writing, and academic expression while keeping a steady daily research rhythm.</p>
+              <span class="timeline-badge">Language</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="timeline lang-block" data-lang="zh">
+          <article class="timeline-item">
+            <div class="timeline-date">2025.11 - 2026.02</div>
+            <div class="timeline-card">
+              <h3>论文撰写与打磨</h3>
+              <p>围绕合作行为动力学、模型设计与数值验证完成论文写作和内容润色。</p>
+              <span class="timeline-badge">Writing</span>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-date">2026.03 - 2026.05</div>
+            <div class="timeline-card">
+              <h3>审稿跟进与发表流程</h3>
+              <p>持续跟进论文反馈，调整表达细节，并为下一阶段研究做准备。</p>
+              <span class="timeline-badge">Publication</span>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-date">2026.05 - 2026.10</div>
+            <div class="timeline-card">
+              <h3>新论文选题与写作</h3>
+              <p>继续推进与 AI 促进合作、策略互动相关的新论文工作。</p>
+              <span class="timeline-badge">Research</span>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-date">现在 - 2026.08</div>
+            <div class="timeline-card">
+              <h3>雅思准备与学术英语提升</h3>
+              <p>在日常科研推进的同时，加强口语、写作与学术表达能力。</p>
+              <span class="timeline-badge">Language</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel section-panel">
+        <div class="section-heading">
+          <p class="section-kicker lang-block" data-lang="en">Selected Work</p>
+          <p class="section-kicker lang-block" data-lang="zh">代表工作</p>
+          <h2 class="lang-block" data-lang="en">Papers and Projects</h2>
+          <h2 class="lang-block" data-lang="zh">论文与项目</h2>
+        </div>
+
+        <div class="work-grid">
+          <article class="work-card">
+            <p class="work-label lang-block" data-lang="en">Under Review</p>
+            <p class="work-label lang-block" data-lang="zh">在审稿件</p>
+            <h3 class="work-title lang-block" data-lang="en">Manuscript in Progress</h3>
+            <h3 class="work-title lang-block" data-lang="zh">在研论文</h3>
+
+            <ul class="work-list lang-block" data-lang="en">
+              <li>
+                <strong>A Tripartite Intervention-Conflict Game with Frequency-Adjusted Q-learning</strong>
+                Y. Qin, H. Chen, and L. Wang.<br>
+                Submitted to <i>Applied Mathematical Modelling</i>.
+              </li>
+            </ul>
+
+            <ul class="work-list lang-block" data-lang="zh">
+              <li>
+                <strong>A Tripartite Intervention-Conflict Game with Frequency-Adjusted Q-learning</strong>
+                Y. Qin, H. Chen, and L. Wang.<br>
+                投稿至 <i>Applied Mathematical Modelling</i>。
+              </li>
+            </ul>
+          </article>
+
+          <article class="work-card">
+            <p class="work-label lang-block" data-lang="en">Publications</p>
+            <p class="work-label lang-block" data-lang="zh">已发表论文</p>
+            <h3 class="work-title lang-block" data-lang="en">Selected Papers</h3>
+            <h3 class="work-title lang-block" data-lang="zh">代表论文</h3>
+
+            <ul class="work-list lang-block" data-lang="en">
+              <li>
+                <strong>An Tripartite Evolutionary Game Analysis of the "Siege Wei to Rescue Zhao" Strategy</strong>
+                <i>2025 44th Chinese Control Conference</i>.<br>
+                DOI: <a href="https://doi.org/10.23919/CCC64809.2025.11179046" target="_blank" rel="noopener noreferrer">10.23919/CCC64809.2025.11179046</a>
+              </li>
+              <li>
+                <strong>Recovering Cooperation in Spatial Prisoner's Dilemma via a Forced Loner Mechanism</strong>
+                <i>Physica A: Statistical Mechanics and its Applications</i> (2026).<br>
+                DOI: <a href="https://doi.org/10.1016/j.physa.2026.131309" target="_blank" rel="noopener noreferrer">10.1016/j.physa.2026.131309</a>
+              </li>
+            </ul>
+
+            <ul class="work-list lang-block" data-lang="zh">
+              <li>
+                <strong>An Tripartite Evolutionary Game Analysis of the "Siege Wei to Rescue Zhao" Strategy</strong>
+                <i>2025 第44届中国控制会议</i>。<br>
+                DOI：<a href="https://doi.org/10.23919/CCC64809.2025.11179046" target="_blank" rel="noopener noreferrer">10.23919/CCC64809.2025.11179046</a>
+              </li>
+              <li>
+                <strong>Recovering Cooperation in Spatial Prisoner's Dilemma via a Forced Loner Mechanism</strong>
+                <i>Physica A: Statistical Mechanics and its Applications</i>（2026）。<br>
+                DOI：<a href="https://doi.org/10.1016/j.physa.2026.131309" target="_blank" rel="noopener noreferrer">10.1016/j.physa.2026.131309</a>
+              </li>
+            </ul>
+          </article>
+
+          <article class="work-card">
+            <p class="work-label lang-block" data-lang="en">Project</p>
+            <p class="work-label lang-block" data-lang="zh">项目与竞赛</p>
+            <h3 class="work-title lang-block" data-lang="en">Multi-Agent UAV RL</h3>
+            <h3 class="work-title lang-block" data-lang="zh">多智能体无人机强化学习</h3>
+
+            <ul class="work-list lang-block" data-lang="en">
+              <li>
+                <strong>Competition-Based Research Project</strong>
+                Designed confrontation strategies with RflySim for multi-agent UAV scenarios.<br>
+                National Intelligent Swarm Challenge (Air Track), <a href="https://sic.c2.org.cn/h-col-108.html" target="_blank" rel="noopener noreferrer">First Prize</a>, 2025.
+              </li>
+            </ul>
+
+            <ul class="work-list lang-block" data-lang="zh">
+              <li>
+                <strong>竞赛驱动研究项目</strong>
+                基于 RflySim 设计多智能体无人机对抗策略。<br>
+                全国智能集群挑战赛空中赛道，<a href="https://sic.c2.org.cn/h-col-108.html" target="_blank" rel="noopener noreferrer">一等奖</a>，2025。
+              </li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel section-panel">
+        <div class="section-heading">
+          <p class="section-kicker lang-block" data-lang="en">Visitors</p>
+          <p class="section-kicker lang-block" data-lang="zh">访客统计</p>
+          <h2 class="lang-block" data-lang="en">Website Visitors</h2>
+          <h2 class="lang-block" data-lang="zh">网站访客</h2>
+        </div>
+
+        <div class="visitor-frame">
+          <script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=800&t=tt&d=AKzaBtHpqyWPWlTu1s01yr4l7LASQkKAVXI_UFbWl1A&co=68aad9&cmo=53ffec&cmn=2fd915&ct=292424"></script>
+        </div>
+
+        <p class="visitor-note lang-block" data-lang="en">
+          This map shows aggregated and anonymized visitor statistics by country or region, provided by the third-party service ClustrMaps.
+        </p>
+        <p class="visitor-note lang-block" data-lang="zh">
+          该地图由第三方服务 ClustrMaps 提供，仅展示按国家或地区汇总的匿名访客统计信息。
+        </p>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

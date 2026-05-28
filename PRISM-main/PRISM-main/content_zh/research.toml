@@ -1,0 +1,45 @@
+type = "card"
+title = "研究"
+description = "以时间线方式整理我的学术路径、当前科研主线和并行支线。"
+
+[[items]]
+title = "自动化本科"
+subtitle = "哈尔滨工业大学（深圳）"
+date = "2020.09 - 2024.06"
+content = "完成自动化、智能系统与类脑智能相关的学术基础训练。"
+tags = ["教育经历", "自动化", "研究基础"]
+
+[[items]]
+title = "复杂网络与控制实验室硕士阶段"
+subtitle = "上海交通大学"
+date = "2024.09 - 至今"
+content = "目前主线围绕合作机制、策略互动以及复杂系统中的 AI 学习过程展开。"
+tags = ["合作机制", "复杂系统", "上海交大"]
+
+[[items]]
+title = "Applied Mathematical Modelling 稿件"
+subtitle = "A Tripartite Intervention-Conflict Game with Frequency-Adjusted Q-learning"
+date = "2025.10 - 2026.05"
+content = "围绕 AMM 论文开展撰写、修改和整体内容整合工作。"
+tags = ["稿件", "Q-learning", "演化博弈"]
+
+[[items]]
+title = "Physica A 稿件"
+subtitle = "Recovering Cooperation in Spatial Prisoner's Dilemma via a Forced Loner Mechanism"
+date = "2025.11 - 2026.02"
+content = "作为并行支线推进 Physica A 论文的写作和内容打磨。"
+tags = ["已发表", "合作行为", "空间博弈"]
+
+[[items]]
+title = "雅思与学术英语准备"
+subtitle = "国际交流能力准备"
+date = "现在 - 2026.08"
+content = "在保持科研日常推进的同时，提升口语、写作和学术表达能力。"
+tags = ["语言", "学术写作"]
+
+[[items]]
+title = "网络公共资源博弈"
+subtitle = "未来论文方向"
+date = "计划自 2026.12 起"
+content = "围绕强化学习在网络公共资源博弈中的合作机制开展下一阶段长线研究。"
+tags = ["下一篇论文", "强化学习", "多智能体系统"]

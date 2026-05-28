@@ -1,0 +1,45 @@
+type = "card"
+title = "Research"
+description = "A timeline-style overview of my academic path and current research branches."
+
+[[items]]
+title = "B.Sc. in Automation"
+subtitle = "Harbin Institute of Technology, Shenzhen"
+date = "2020.09 - 2024.06"
+content = "Built the academic foundation in automation, intelligent systems, and neuromorphic intelligence."
+tags = ["Education", "Automation", "Foundation"]
+
+[[items]]
+title = "M.Sc. at the Complex Networks and Control Lab"
+subtitle = "Shanghai Jiao Tong University"
+date = "2024.09 - Present"
+content = "My current main line centers on cooperation mechanisms, strategic interaction, and AI-assisted learning in complex systems."
+tags = ["Cooperation", "Complex Systems", "SJTU"]
+
+[[items]]
+title = "Applied Mathematical Modelling Manuscript"
+subtitle = "A Tripartite Intervention-Conflict Game with Frequency-Adjusted Q-learning"
+date = "2025.10 - 2026.05"
+content = "Working through drafting, revision, and consolidation for an AMM manuscript."
+tags = ["Manuscript", "Q-learning", "Evolutionary Game"]
+
+[[items]]
+title = "Physica A Manuscript"
+subtitle = "Recovering Cooperation in Spatial Prisoner's Dilemma via a Forced Loner Mechanism"
+date = "2025.11 - 2026.02"
+content = "Focused on writing and refining the Physica A manuscript as a parallel research branch."
+tags = ["Published", "Cooperation", "Spatial Game"]
+
+[[items]]
+title = "IELTS and Academic English"
+subtitle = "International communication preparation"
+date = "Present - 2026.08"
+content = "Improving speaking, writing, and academic expression while keeping daily research progress stable."
+tags = ["Language", "Academic Writing"]
+
+[[items]]
+title = "Network Common-Pool Resource Games"
+subtitle = "Future paper direction"
+date = "From 2026.12"
+content = "Exploring cooperation mechanisms via reinforcement learning in network common-pool resource games."
+tags = ["Next Paper", "Reinforcement Learning", "Multi-Agent Systems"]

@@ -1,0 +1,48 @@
+[site]
+title = "秦一航"
+description = "上海交通大学复杂网络与控制实验室硕士生个人主页。"
+last_updated = "2026年5月25日"
+
+[author]
+name = "秦一航"
+title = "硕士生"
+institution = "上海交通大学"
+
+[social]
+email = "qyh_2024@sjtu.edu.cn"
+location = "中国，上海"
+location_url = "https://maps.google.com/?q=Shanghai%20Jiao%20Tong%20University"
+location_details = [
+  "复杂网络与控制实验室，",
+  "上海交通大学"
+]
+github = "https://github.com/Echo-2020-Q"
+website = "https://echo-2020-q.github.io"
+
+[visitor_map]
+title = "访客地图"
+note = "该地图展示由 MapMyVisitors 提供的按国家/地区汇总且匿名化的访问统计。本网站不会收集或存储可识别个人身份的信息。"
+
+[[navigation]]
+title = "关于我"
+type = "page"
+target = "about"
+href = "/"
+
+[[navigation]]
+title = "论文"
+type = "page"
+target = "publications"
+href = "/publications"
+
+[[navigation]]
+title = "图片"
+type = "page"
+target = "pictures"
+href = "/pictures"
+
+[[navigation]]
+title = "简历"
+type = "page"
+target = "cv"
+href = "/cv"

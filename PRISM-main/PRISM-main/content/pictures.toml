@@ -1,0 +1,59 @@
+type = "card"
+title = "Pictures"
+description = "A few snippets from my studies and daily life"
+
+
+[[items]]
+title = "Taian, China, April 2026"
+subtitle = "Mount Tai, the Eastern Peak"
+date = "2026.04"
+content = """
+![Guangzhou](/Tai6.jpg)
+![Guangzhou](/Tai4.jpg)
+![Guangzhou](/Tai2.jpg)
+![Guangzhou](/Tai3.jpg)
+![Guangzhou](/Taime1.jpg)
+![Guangzhou](/Taime2.jpg)
+![Guangzhou](/Tai5.jpg)
+"""
+tags = ["Hiking","Trip"]
+
+[[items]]
+title = "Guangzhou, China, February 2026"
+subtitle = "Canton Tower and Chimelong Zoo"
+date = "2026.02"
+content = """
+![Guangzhou](/Guangzhou2.jpg)
+![Guangzhou](/Guangzhou1.jpg)
+![Guangzhou](/Guangzhou3.jpg)
+![Guangzhou](/Guangzhou4.jpg)
+![Guangzhou](/Guangzhou5.jpg)
+![Guangzhou](/Guangzhou6.jpg)
+"""
+tags = ["Trip"]
+
+
+[[items]]
+title = "Shanghai, China, January 2026"
+subtitle = "Shanghai Disneyland"
+date = "2026.01"
+content = """
+![Shanghai Disneyland](/Disney.jpg)
+![Shanghai Disneyland](/Disney4.jpg)
+![Shanghai Disneyland](/Disney3.jpg)
+![Shanghai Disneyland](/Disney2.jpg)
+"""
+tags = ["Trip"]
+
+[[items]]
+title = "Chongqing, China, July 2025"
+subtitle = "44th Chinese Control Conference (2025)"
+date = "2025.07"
+pinned = true
+content = """
+![CCC 2025](/CCC1.jpg)
+![CCC 2025](/CCC0.jpg)
+![CCC 2025](/CCC2.jpg)
+![CCC 2025](/CCC3.jpg)
+"""
+tags = ["Conference"]

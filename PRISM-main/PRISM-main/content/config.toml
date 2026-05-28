@@ -1,0 +1,79 @@
+[site]
+title = "Yihang Qin"
+description = "Master's student at the Complex Networks and Control Lab, Shanghai Jiao Tong University."
+favicon = "/favicon.ico"
+last_updated = "May 25, 2026"
+
+[author]
+name = "Yihang Qin"
+title = "M.Sc. Student"
+institution = "Shanghai Jiao Tong University"
+avatar = "/ChatGPT Image 2026年5月27日 23_48_28.png"
+
+[social]
+# Contact information (leave blank or delete to hide)
+
+email = "qyh_2024@sjtu.edu.cn"
+location = "Shanghai, China"
+location_url = "https://maps.google.com/?q=Shanghai%20Jiao%20Tong%20University"
+location_details = [
+  "Complex Networks and Control Lab,",
+  "Shanghai Jiao Tong University"
+]
+github = "https://github.com/Echo-2020-Q"
+website = "https://echo-2020-q.github.io"
+
+[features]
+# Show a like button on the about page
+enable_likes = true
+
+# Display all subpages on a single page
+enable_one_page_mode = false
+
+[visitor_map]
+enabled = true
+title = "Visitor Map"
+script_id = "mapmyvisitors"
+script_url = "https://mapmyvisitors.com/map.js?cl=ffffff&w=a&t=tt&d=YQXHPuJxwIaoI_7mQOzC8d0Y51u-RekhkedFsjf7EPk"
+link_url = "https://mapmyvisitors.com/"
+note = "This map displays aggregated and anonymized visitor statistics by country/region, provided by MapMyVisitors. No personally identifiable information is collected or stored by this website."
+
+[i18n]
+enabled = true
+locales = ["zh", "en"]
+default_locale = "en"
+# "auto" means the locale will be determined by the browser's language setting, "fixed" means the locale will be fixed to the default locale (but can be switched still, if you want to disable, set "enable=false")
+mode = "auto"
+fixed_locale = "en"
+# If true, PRISM will remember user's language preference in browser's localStorage
+persist = true
+# Show a language switcher on the top right corner
+switcher = true
+
+[i18n.labels]
+zh = "中文"
+en = "English"
+
+[[navigation]]
+title = "About"
+type = "page"
+target = "about"
+href = "/"
+
+[[navigation]]
+title = "Publications"
+type = "page"
+target = "publications"
+href = "/publications"
+
+[[navigation]]
+title = "Pictures"
+type = "page"
+target = "pictures"
+href = "/pictures"
+
+[[navigation]]
+title = "CV"
+type = "page"
+target = "cv"
+href = "/cv"

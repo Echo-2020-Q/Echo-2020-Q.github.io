@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Yihang's website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="favicon.ico" sizes="any">
+
+  <style>
+    body{
+      max-width: 920px;
+      margin: 40px auto;
+      padding: 0 20px;
+      font-family: "Times New Roman", Times, serif;
+      line-height: 1.6;
+      color: #111;
+      font-size: 18px; /* was 16px */
+    }
+    h1{
+      font-size: 38px; /* was 34px */
+      margin: 0 0 8px 0;
+      font-weight: 700;
+    }
+    h2{
+      font-size: 24px; /* was 22px */
+      margin-top: 34px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #aaa;
+      font-weight: 700;
+    }
+    /* link style */
+    a{
+      color: #1a73e8;            /* light blue */
+      text-decoration: none;
+    }
+    a:hover{
+      text-decoration: underline;
+    }
+    a:visited{
+      color: #1a73e8;            /* keep same color after visited */
+    }
+
+    ul{ padding-left: 1.2em; margin: 10px 0 0 0; }
+    li{ margin: 8px 0; }
+
+    .contact{ margin: 0 0 18px 0; }
+    .muted{ color:#444; }
+    .item-meta{
+      float: right;
+      font-style: italic;
+      color:#333;
+    }
+    .clear{ clear: both; }
+    .small{ font-size: 0.98em; color:#333; } /* was 0.95em */
+    .section-note{ margin-top: 8px; color:#333; }
+
+    /* language switch */
+    .lang-switch{
+      position: fixed;
+      top: 20px;
+      right: 30px;
+      font-size: 16px; /* was 14px */
+    }
+    .lang-switch span{
+      cursor: pointer;
+      margin-left: 8px;
+      color: #555;
+    }
+    .lang-switch span.active{
+      font-weight: bold;
+      color: #000;
+    }
+    .top-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  margin-bottom: 24px;
+}
+
+.top-left{
+  flex: 1;
+  min-width: 0;
+}
+
+.profile-photo{
+  width: 126px;
+  height: 156px;
+  object-fit: cover;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  display: block;
+}
+
+@media (max-width: 800px){
+  .top-header{
+    flex-direction: column;
+  }
+
+  .profile-photo{
+    width: 180px;
+    height: auto;
+  }
+}
+  </style>
+
+  <script>
+    function switchLang(lang){
+      // toggle content blocks
+      document.querySelectorAll('[data-lang]').forEach(el=>{
+        el.style.display = el.dataset.lang === lang ? 'block' : 'none';
+      });
+
+      // toggle language button style
+      document.querySelectorAll('.lang-switch span').forEach(el=>{
+        el.classList.remove('active');
+      });
+      document.getElementById('btn-' + lang).classList.add('active');
+
+      // toggle name
+      document.querySelectorAll('[data-name]').forEach(el=>{
+        el.style.display = (el.dataset.name === lang) ? 'inline' : 'none';
+      });
+    }
+
+    // default language: English
+    window.onload = function(){
+      switchLang('en');
+    }
+  </script>
+
+</head>
+
+<body>
+
+<div class="lang-switch">
+  <span id="btn-en" onclick="switchLang('en')">EN</span> |
+  <span id="btn-zh" onclick="switchLang('zh')">中文</span>
+</div>
+
+<div class="top-header">
+  <div class="top-left">
+    <h1>
+      <span data-name="en">Yihang Qin</span>
+      <span data-name="zh">秦一航</span>
+    </h1>
+
+    <div class="contact">
+      Email: <a href="mailto:zhuyongxue15@gmail.com">zhuyongxue15@gmail.com</a><br>
+      GitHub: <a href="https://github.com/Echo-2020-Q" target="_blank" rel="noopener noreferrer">Echo-2020-Q</a><br>
+      Web: <a href="https://echo-2020-q.github.io" target="_blank" rel="noopener noreferrer">https://echo-2020-q.github.io</a>
+    </div>
+  </div>
+
+  <img src="Page_Photo2.jpg" alt="Yihang Qin" class="profile-photo">
+</div>
+
+<!-- ================= ENGLISH ================= -->
+<div data-lang="en" lang="en">
+
+<h2>About Me</h2>
+<p>
+Hi, I'm Yihang Qin, currently pursuing a master's degree at the
+<a href="https://cnc.sjtu.edu.cn/" target="_blank" rel="noopener noreferrer">Complex Networks and Control Lab(CNC)</a> of <a href="https://en.sjtu.edu.cn/" target="_blank" rel="noopener noreferrer">Shanghai Jiao Tong University</a>.
+I'm interested in promoting cooperation through artificial intelligence,
+particularly deep reinforcement learning and evolutionary game theory.
+Related work includes evolutionary game modeling and simulation, as well as potential experimental research focused on human behavior.
+I hope my research can contribute to the natural sciences in human society!
+If you think we share similar interests,
+<a href="mailto:zhuyongxue15@gmail.com">feel free to reach out</a> for discussion~
+</p>
+
+<h2>Education</h2>
+<ul>
+  <li>
+    <b>Shanghai Jiao Tong University</b>, M.Sc. in Automation
+    <span class="item-meta">2024 – Present</span>
+    <div class="clear"></div>
+    <span class="small">
+      Advisor:
+      <a href="https://cnc.sjtu.edu.cn/lwang.html" target="_blank" rel="noopener noreferrer">Prof. Lin Wang</a>
+      · Reinforcement Learning &amp; Evolutionary Game Theory
+    </span>
+  </li>
+  <li>
+    <b>Harbin Institute of Technology (Shenzhen)</b>, B.Sc. in Automation
+    <span class="item-meta">2020 – 2024</span>
+    <div class="clear"></div>
+    <span class="small">
+      Advisor:
+      <a href="https://homepage.hit.edu.cn/ZiluWANG" target="_blank" rel="noopener noreferrer">Prof. Zilu Wang</a>
+      · Memristor-based Neuromorphic Intelligence
+    </span>
+  </li>
+</ul>
+
+<h2>Manuscripts Under Review</h2>
+<ul>
+  <li>
+    <b>A Tripartite Intervention–Conflict Game with Frequency-Adjusted Q-learning</b><br>
+    Y. Qin, H. Chen, and L. Wang<br>
+    <i>Submitted to Applied Mathematical Modelling</i>, 2025.
+  </li>
+</ul>
+
+<h2>Publications</h2>
+<ul>
+ <li>
+  Y. Qin, H. Chen and L. Wang, 
+  "An Tripartite Evolutionary Game Analysis of the ‘Siege Wei to Rescue Zhao’ Strategy
+  ," 
+  <i>2025 44th Chinese Control Conference (CCC)</i>, Chongqing, China, 2025, pp. 8458-8463, 
+  doi: <a href="https://doi.org/10.23919/CCC64809.2025.11179046" target="_blank" rel="noopener noreferrer">
+    10.23919/CCC64809.2025.11179046
+  </a>.
+ </li>
+ <li>
+   Y. Qin, H. Chen and L. Wang
+   "Recovering cooperation in Spatial Prisoner’s Dilemma via a forced loner mechanism
+   ,"
+   <i>Physica A: Statistical Mechanics and its Applications </i>(2026), 
+   doi: <a href="https://doi.org/10.1016/j.physa.2026.131309" target="_blank" rel="noopener noreferrer">
+    10.1016/j.physa.2026.131309 
+    </a>.
+  </li>
+</ul>
+
+<h2>Research Projects &amp; Experience</h2>
+<ul>
+  <li>
+    <b>Multi-Agent UAV Adversarial Reinforcement Learning</b>
+    (<a href="https://sic.c2.org.cn/h-col-104.html" target="_blank" rel="noopener noreferrer">Competition-based Project</a>)<br>
+    – Designed RL-based UAV confrontation strategies using RflySim.<br>
+    – National Intelligent Swarm Challenge (Air Track),
+      <a href="https://sic.c2.org.cn/h-col-108.html" target="_blank" rel="noopener noreferrer"><b>First Prize</b></a>, 2025.
+  </li>
+</ul>
+
+</div>
+
+<!-- ================= CHINESE ================= -->
+<div data-lang="zh" lang="zh-CN">
+
+<h2>关于我</h2>
+<p>
+嗨，我是秦一航，现于<a href="https://www.sjtu.edu.cn/" target="_blank" rel="noopener noreferrer">上海交通大学</a>的
+<a href="https://cnc.sjtu.edu.cn/" target="_blank" rel="noopener noreferrer">复杂网络与控制实验室(CNC)</a>
+就读硕士。研究兴趣聚焦于通过人工智能（尤其是深度强化学习）
+促进合作行为的形成与维持，相关工作包括演化博弈建模与仿真，以及面向人类行为的实验研究。
+希望我的研究能为人类社会的自然科学研究做出贡献！
+如果你觉得我们志趣相同，欢迎
+<a href="mailto:zhuyongxue15@gmail.com">交流讨论</a>~
+</p>
+
+<h2>教育经历</h2>
+<ul>
+  <li>
+    <b>上海交通大学</b> · 自动化系 · 硕士
+    <span class="item-meta">2024 – 至今</span>
+    <div class="clear"></div>
+    <span class="small">
+      导师：
+      <a href="https://cnc.sjtu.edu.cn/lwang.html" target="_blank" rel="noopener noreferrer">王琳教授</a>
+      · 强化学习 × 演化博弈
+    </span>
+  </li>
+  <li>
+    <b>哈尔滨工业大学(深圳)</b> · 自动化系 · 学士
+    <span class="item-meta">2020 – 2024</span>
+    <div class="clear"></div>
+    <span class="small">
+      导师：
+      <a href="https://homepage.hit.edu.cn/ZiluWANG" target="_blank" rel="noopener noreferrer">王紫璐教授</a>
+      · 基于忆阻器的类脑智能
+    </span>
+  </li>
+</ul>
+
+<h2>在投论文</h2>
+<ul>
+  <li>
+    <b>A Tripartite Intervention–Conflict Game with Frequency-Adjusted Q-learning</b><br>
+    Y. Qin, H. Chen, and L. Wang<br>
+    <i>Submitted to Applied Mathematical Modelling</i>, 2025.
+  </li>
+  <li>
+    <b>Recovering Cooperation in Spatial Prisoner’s Dilemma via a Forced Loner Mechanism</b><br>
+    Y. Qin, H. Chen, and L. Wang<br>
+    <i>Submitted to Physica A: Statistical Mechanics and its Applications</i>, 2025.
+  </li>
+</ul>
+
+<h2>已发表论文</h2>
+<ul>
+ <li>
+  Y. Qin, H. Chen and L. Wang, 
+  "An Tripartite Evolutionary Game Analysis of the ‘Siege Wei to Rescue Zhao’ Strategy
+  ," 
+  <i>2025 44th Chinese Control Conference (CCC)</i>, Chongqing, China, 2025, pp. 8458-8463, 
+  doi: <a href="https://doi.org/10.23919/CCC64809.2025.11179046" target="_blank" rel="noopener noreferrer">
+    10.23919/CCC64809.2025.11179046
+  </a>.
+</li>
+
+</ul>
+
+<h2>研究项目与经历</h2>
+<ul>
+  <li>
+    <b>多智能体无人机对抗强化学习</b>（<a href="https://sic.c2.org.cn/h-col-104.html" target="_blank" rel="noopener noreferrer">竞赛项目</a>）<br>
+    – 基于 RflySim 设计强化学习无人机对抗策略<br>
+    – 全国智能集群挑战赛（空中赛道）
+      <a href="https://sic.c2.org.cn/h-col-108.html" target="_blank" rel="noopener noreferrer"><b>一等奖</b></a>，2025
+  </li>
+</ul>
+
+</div>
+<!-- ================= Visitor Map ================= -->
+<h2>Website Visitors</h2>
+<div style="margin: 10px 0 40px 0;">
+   <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=800&t=tt&d=AKzaBtHpqyWPWlTu1s01yr4l7LASQkKAVXI_UFbWl1A&co=68aad9&cmo=53ffec&cmn=2fd915&ct=292424'></script>
+   <div class="section-note muted" style="font-size:0.95em;">
+     This map displays aggregated and anonymized visitor statistics by country/region, provided by a third-party analytics service (https://clustrmaps.com/). 
+     No personally identifiable information is collected or stored by this website.
+</div>
+
+</div>
+
+</body>
+</html>

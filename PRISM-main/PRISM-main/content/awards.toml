@@ -1,0 +1,17 @@
+type = "card"
+title = "Milestones"
+description = "Academic milestones and research progress."
+
+[[items]]
+title = "Published Work in Physica A"
+subtitle = "Cooperation recovery in spatial games"
+date = "2026"
+content = "\"Recovering Cooperation in Spatial Prisoner's Dilemma via a Forced Loner Mechanism\" was published in *Physica A: Statistical Mechanics and its Applications*."
+tags = ["Publication", "Physica A"]
+
+[[items]]
+title = "Chinese Control Conference Paper"
+subtitle = "Tripartite evolutionary game analysis"
+date = "2025"
+content = "Prepared and published conference work on the \"Siege Wei to Rescue Zhao\" strategy at the 44th Chinese Control Conference."
+tags = ["Conference", "Evolutionary Game"]

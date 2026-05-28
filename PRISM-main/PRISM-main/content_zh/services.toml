@@ -1,0 +1,17 @@
+type = "card"
+title = "科研支线"
+description = "并行推进的论文支线与后续研究方向。"
+
+[[items]]
+title = "Applied Mathematical Modelling"
+subtitle = "投稿稿件"
+date = "2025.10 - 2026.05"
+content = "围绕 intervention-conflict dynamics 与 frequency-adjusted Q-learning 开展撰写、修改和内容整合。"
+tags = ["稿件", "Q-learning"]
+
+[[items]]
+title = "网络公共资源博弈"
+subtitle = "未来论文支线"
+date = "计划自 2026.12 起"
+content = "作为下一阶段的长线论文方向，关注强化学习与合作机制。"
+tags = ["未来工作", "强化学习"]

@@ -1,0 +1,17 @@
+type = "card"
+title = "Research Branches"
+description = "Parallel paper branches and future directions."
+
+[[items]]
+title = "Applied Mathematical Modelling"
+subtitle = "Submitted manuscript"
+date = "2025.10 - 2026.05"
+content = "Working through drafting, revision, and consolidation for a manuscript on intervention-conflict dynamics and frequency-adjusted Q-learning."
+tags = ["Manuscript", "Q-learning"]
+
+[[items]]
+title = "Network Common-Pool Resource Games"
+subtitle = "Future paper branch"
+date = "From 2026.12"
+content = "A planned long-form paper direction on reinforcement learning and cooperation mechanisms."
+tags = ["Future Work", "Reinforcement Learning"]
