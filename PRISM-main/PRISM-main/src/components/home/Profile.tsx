@@ -88,7 +88,8 @@ function VisitorMap({ visitorMap }: { visitorMap?: SiteConfig['visitor_map'] }) 
             {scriptUrl && !scriptFailed ? (
                 <div
                     ref={scriptContainerRef}
-                    className="min-h-0 w-full overflow-hidden text-center [&_a]:inline-block [&_canvas]:mx-auto [&_iframe]:mx-auto [&_img]:mx-auto [&_img]:h-auto [&_img]:max-w-full [&_svg]:mx-auto"
+                    className="pointer-events-none min-h-0 w-full overflow-hidden text-center [&_a]:inline-block [&_canvas]:mx-auto [&_iframe]:mx-auto [&_img]:mx-auto [&_img]:h-auto [&_img]:max-w-full [&_svg]:mx-auto"
+                    aria-label={`${title} preview`}
                 />
             ) : linkUrl ? (
                 <a href={linkUrl} target="_blank" rel="noopener noreferrer" aria-label={title}>

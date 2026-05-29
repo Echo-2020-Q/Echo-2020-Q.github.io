@@ -17,6 +17,7 @@ location_details = [
   "上海交通大学"
 ]
 github = "https://github.com/Echo-2020-Q"
+google_scholar = "https://scholar.google.com/citations?user=nu_LtbkAAAAJ&hl"
 website = "https://echo-2020-q.github.io"
 
 [visitor_map]

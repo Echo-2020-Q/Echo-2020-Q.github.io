@@ -35,7 +35,6 @@ enabled = true
 title = "Visitor Map"
 script_id = "mapmyvisitors"
 script_url = "https://mapmyvisitors.com/map.js?cl=ffffff&w=a&t=tt&d=YQXHPuJxwIaoI_7mQOzC8d0Y51u-RekhkedFsjf7EPk"
-link_url = "https://mapmyvisitors.com/"
 note = "This map displays aggregated and anonymized visitor statistics by country/region, provided by MapMyVisitors. No personally identifiable information is collected or stored by this website."
 
 [i18n]
