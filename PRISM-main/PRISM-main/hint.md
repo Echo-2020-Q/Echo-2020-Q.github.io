@@ -22,3 +22,13 @@ git push origin main
 
 git branch
 看到前面带 * 的就是当前分支。一般你的仓库应该是 main。
+
+
+cd /d E:\Project\Echo-2020-Q.github.io\PRISM-main\PRISM-main
+npm run build
+cd /d E:\Project\Echo-2020-Q.github.io
+xcopy PRISM-main\PRISM-main\out\* . /E /I /Y
+type nul > .nojekyll
+git add .
+git commit -m "Deploy PRISM personal website"
+git push origin main
