@@ -1,24 +1,96 @@
 type = "card"
 title = "图片"
-description = "为个人照片、论文配图、文章封面或会议照片预留的视觉展示区域。"
+description = "一些学习和日常生活中的片段。"
 
 [[items]]
-title = "个人照片"
-subtitle = "首页头像"
-date = "Profile"
-content = "![个人照片](/Page_Photo2.jpg)"
-tags = ["Profile"]
+title = "泰安，中国，2026 年 4 月"
+subtitle = "东岳泰山"
+date = "2026.04"
+content = """
+![泰山](/Tai6.jpg)
+![泰山](/Tai4.jpg)
+![泰山](/Tai2.jpg)
+![泰山](/Tai3.jpg)
+![泰山](/Taime1.jpg)
+![泰山](/Taime2.jpg)
+![泰山](/Tai5.jpg)
+"""
+tags = ["Hiking", "Trip"]
 
 [[items]]
-title = "主图位置"
-subtitle = "适合放论文图或研究封面"
-date = "Gallery"
-content = "![主图](/Page_Photo.jpg)"
-tags = ["研究配图"]
+title = "广州，中国，2026 年 2 月"
+subtitle = "广州塔与长隆动物园"
+date = "2026.02"
+content = """
+![广州](/Guangzhou2.jpg)
+![广州](/Guangzhou1.jpg)
+![广州](/Guangzhou3.jpg)
+![广州](/Guangzhou4.jpg)
+![广州](/Guangzhou5.jpg)
+![广州](/Guangzhou6.jpg)
+"""
+tags = ["Trip"]
 
 [[items]]
-title = "论文配图位置"
-subtitle = "适合放 AMM、Physica A 或其他稿件配图"
-date = "Gallery"
-content = "![论文配图](/Page_Photo1.jpg)"
-tags = ["论文配图"]
+title = "上海，中国，2026 年 1 月"
+subtitle = "上海迪士尼乐园"
+date = "2026.01"
+content = """
+![上海迪士尼](/Disney.jpg)
+![上海迪士尼](/Disney4.jpg)
+![上海迪士尼](/Disney3.jpg)
+![上海迪士尼](/Disney2.jpg)
+"""
+tags = ["Trip"]
+
+[[items]]
+title = "重庆，中国，2025 年 7 月"
+subtitle = "第 44 届中国控制会议（2025）"
+date = "2025.07"
+pinned = true
+content = """
+![CCC 2025](/CCC1.jpg)
+![CCC 2025](/CCC0.jpg)
+![CCC 2025](/CCC2.jpg)
+![CCC 2025](/CCC3.jpg)
+"""
+tags = ["Conference"]
+
+[[items]]
+title = "上海，中国，2025 年 11 月"
+subtitle = "2025 第二届全国集群智能挑战赛"
+date = "2025.11"
+pinned = true
+content = """
+![卓翼杯](/Zhuoyicup2.jpg)
+![卓翼杯](/Zhuoyicup3.jpg)
+![卓翼杯](/Zhuoyicup4.jpg)
+![卓翼杯](/Zhuoyicup1.jpg)
+"""
+tags = ["Conference"]
+
+[[items]]
+title = "香港，中国，2024 年 6 月"
+subtitle = "蓝天、海港和一些在香港的好回忆。"
+date = "2024.06"
+content = """
+![香港](/HongKong3.jpg)
+![香港](/HongKong4.jpg)
+![香港](/HongKong5.jpg)
+![香港](/HongKong2.jpg)
+![香港](/HongKong1.jpg)
+"""
+tags = ["Trip"]
+
+[[items]]
+title = "深圳，中国，2020–2024"
+subtitle = "在哈尔滨工业大学（深圳）的本科回忆。"
+date = "2020–2024"
+content = """
+![本科](/Benke1.jpg)
+![本科](/Benke2.jpg)
+![本科](/Benke3.jpg)
+![本科](/Benke4.jpg)
+![本科](/Benke5.jpg)
+"""
+tags = ["Undergraduate"]

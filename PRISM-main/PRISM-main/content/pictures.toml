@@ -57,3 +57,44 @@ content = """
 ![CCC 2025](/CCC3.jpg)
 """
 tags = ["Conference"]
+
+[[items]]
+title = "Shanghai, China, November 2025"
+subtitle = "2025 Second National Swarm Intelligence Challenge"
+date = "2025.11"
+pinned = true
+content = """
+![Zhuoyicup](/Zhuoyicup2.jpg)
+![Zhuoyicup](/Zhuoyicup3.jpg)
+![Zhuoyicup](/Zhuoyicup4.jpg)
+![Zhuoyicup](/Zhuoyicup1.jpg)
+"""
+tags = ["Conference"]
+
+[[items]]
+title = "HongKong, China, June 2024"
+subtitle = "Blue skies, harbour views, and a few good memories in Hong Kong."
+date = "2024.06"
+content = """
+![HongKong](/HongKong3.jpg)
+![HongKong](/HongKong4.jpg)
+![HongKong](/HongKong5.jpg)
+![HongKong](/HongKong2.jpg)
+![HongKong](/HongKong1.jpg)
+"""
+tags = ["Trip"]
+
+[[items]]
+title = "Shenzhen, China, 2020–2024"
+subtitle = "Undergraduate memories at Harbin Institute of Technology, Shenzhen."
+date = "2020–2024"
+content = """
+![Undergraduate](/Benke1.jpg)
+![Undergraduate](/Benke2.jpg)
+![Undergraduate](/Benke3.jpg)
+![Undergraduate](/Benke4.jpg)
+![Undergraduate](/Benke5.jpg)
+"""
+tags = ["Undergraduate"]
+
+
