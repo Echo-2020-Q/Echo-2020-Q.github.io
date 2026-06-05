@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
-    "deploy:pages": "npm run build && node scripts/deploy-pages.mjs",
+    "verify:pages": "node scripts/verify-pages.mjs",
+    "deploy:pages": "npm run build && npm run verify:pages && node scripts/deploy-pages.mjs",
     "start": "next start",
     "lint": "next lint"
   },

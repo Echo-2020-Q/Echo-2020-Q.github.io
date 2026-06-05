@@ -1,41 +1,48 @@
-本地预览：
+本地开发预览：
 
 ```cmd
 cd /d E:\Project\Echo-2020-Q.github.io\PRISM-main\PRISM-main
 npm run dev
 ```
 
-构建并复制最新静态网页到 GitHub Pages 仓库根目录：
+`npm run dev` 是开发服务器。GitHub Pages 展示的是生产静态构建，两者内容与交互应一致，但底层加载方式不同。
+
+上线前在本地检查生产构建：
 
 ```cmd
 cd /d E:\Project\Echo-2020-Q.github.io\PRISM-main\PRISM-main
-npm run deploy:pages
+npm run build
+npm run verify:pages
 ```
 
-只有命令最后显示以下内容，才说明静态网页可以上传：
+校验成功时会显示：
 
 ```text
 Verified publication journal and static About navigation.
 ```
 
-如果期刊名称没有进入静态 HTML，或者 About 仍可能跳转到 `index.txt`，部署命令会报错并停止复制。
-
-提交并推送：
+GitHub Pages 已由 `.github/workflows/deploy-pages.yml` 自动构建和部署。修改源码后，只需提交并推送：
 
 ```cmd
 cd /d E:\Project\Echo-2020-Q.github.io
 git add .
-git commit -m "Deploy PRISM personal website"
+git commit -m "Update personal website"
 git push origin main
 ```
 
-每次修改 `content` 或 `src` 后，都必须重新运行 `npm run deploy:pages`。GitHub Pages 展示的是仓库根目录中的静态 HTML，而不是开发服务器实时读取的源文件。
+推送后，在 GitHub 仓库的 `Actions` 页面查看 `Build and deploy PRISM website`。构建和校验全部通过后，GitHub Pages 才会更新。
 
+首次使用自动部署时，需要进入 GitHub 仓库：
 
+```text
+Settings > Pages > Build and deployment > Source
+```
+
+将 Source 设置为 `GitHub Actions`。
+
+如需继续使用旧的手动复制方式，可以运行：
+
+```cmd
 cd /d E:\Project\Echo-2020-Q.github.io\PRISM-main\PRISM-main
 npm run deploy:pages
-
-cd /d E:\Project\Echo-2020-Q.github.io
-git add .
-git commit -m "Update publication journal and static website"
-git push origin main
+```
