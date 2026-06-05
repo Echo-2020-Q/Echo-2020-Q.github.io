@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
-import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Disclosure } from '@headlessui/react';
@@ -123,7 +122,7 @@ export default function Navigation({
   const getDesktopItemHref = (item: SiteConfig['navigation'][number]) =>
     enableOnePageMode
       ? `/#${item.target}`
-      : item.href;
+      : (item.href === '/' ? '/index.html' : item.href);
 
   const activeItem = effectiveItems.find((item) => isDesktopItemActive(item)) ?? null;
   const activeHref = activeItem ? getDesktopItemHref(activeItem) : null;
@@ -182,7 +181,7 @@ export default function Navigation({
                   className="flex-shrink-0"
                 >
                   <a
-                    href="/"
+                    href="/index.html"
                     className="text-xl lg:text-2xl font-serif font-semibold text-primary hover:text-accent transition-colors duration-200"
                   >
                     {effectiveSiteTitle}
@@ -223,19 +222,11 @@ export default function Navigation({
                         const href = getDesktopItemHref(item);
 
                         return (
-                          <Link
+                          <a
                             key={item.target}
                             href={href}
                             data-nav-href={href}
-                            prefetch={item.href !== '/'}
-                            onClick={(event) => {
-                              if (!enableOnePageMode && item.href === '/') {
-                                event.preventDefault();
-                                window.location.assign('/');
-                                return;
-                              }
-                              if (enableOnePageMode) setActiveHash(`#${item.target}`);
-                            }}
+                            onClick={() => enableOnePageMode && setActiveHash(`#${item.target}`)}
                             onMouseEnter={() => setHoveredHref(href)}
                             className={cn(
                               'relative px-3 py-2 text-sm font-medium rounded-lg transition-colors duration-150',
@@ -247,7 +238,7 @@ export default function Navigation({
                             )}
                           >
                             {item.title}
-                          </Link>
+                          </a>
                         );
                       })}
                     </div>
@@ -297,7 +288,7 @@ export default function Navigation({
 
                       const href = enableOnePageMode
                         ? (item.href === '/' ? '/' : `/#${item.target}`)
-                        : item.href;
+                        : (item.href === '/' ? '/index.html' : item.href);
 
                       return (
                         <motion.div
@@ -307,17 +298,9 @@ export default function Navigation({
                           transition={{ delay: index * 0.1 }}
                         >
                           <Disclosure.Button
-                            as={Link}
+                            as="a"
                             href={href}
-                            prefetch={item.href !== '/'}
-                            onClick={(event) => {
-                              if (!enableOnePageMode && item.href === '/') {
-                                event.preventDefault();
-                                window.location.assign('/');
-                                return;
-                              }
-                              if (enableOnePageMode) setActiveHash(item.href === '/' ? '' : `#${item.target}`);
-                            }}
+                            onClick={() => enableOnePageMode && setActiveHash(item.href === '/' ? '' : `#${item.target}`)}
                             className={cn(
                               'block px-3 py-2 rounded-md text-base font-medium transition-all duration-200',
                               isActive
