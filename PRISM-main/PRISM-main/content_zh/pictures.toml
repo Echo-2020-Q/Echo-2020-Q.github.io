@@ -78,10 +78,9 @@ content = """
 ![香港](/HongKong4.jpg)
 ![香港](/HongKong5.jpg)
 ![香港](/HongKong2.jpg)
-![香港](/HongKong1.jpg)
 """
 tags = ["Trip"]
-
+#![香港](/HongKong1.jpg)
 #[[items]]
 #title = "深圳，中国，2020–2024"
 #subtitle = "在哈尔滨工业大学（深圳）的本科回忆。"

@@ -122,7 +122,7 @@ export default function Navigation({
   const getDesktopItemHref = (item: SiteConfig['navigation'][number]) =>
     enableOnePageMode
       ? `/#${item.target}`
-      : (item.href === '/' ? '/index.html' : item.href);
+      : item.href;
 
   const activeItem = effectiveItems.find((item) => isDesktopItemActive(item)) ?? null;
   const activeHref = activeItem ? getDesktopItemHref(activeItem) : null;
@@ -181,7 +181,7 @@ export default function Navigation({
                   className="flex-shrink-0"
                 >
                   <a
-                    href="/index.html"
+                    href="/"
                     className="text-xl lg:text-2xl font-serif font-semibold text-primary hover:text-accent transition-colors duration-200"
                   >
                     {effectiveSiteTitle}
@@ -288,7 +288,7 @@ export default function Navigation({
 
                       const href = enableOnePageMode
                         ? (item.href === '/' ? '/' : `/#${item.target}`)
-                        : (item.href === '/' ? '/index.html' : item.href);
+                        : item.href;
 
                       return (
                         <motion.div
