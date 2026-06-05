@@ -1,15 +1,23 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
+import type { ReactNode } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
+import ReactMarkdown from 'react-markdown';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
 import {
     MagnifyingGlassIcon,
     FunnelIcon,
     CalendarIcon,
     BookOpenIcon,
     ClipboardDocumentIcon,
-    DocumentTextIcon
+    DocumentTextIcon,
+    PhotoIcon,
+    ChevronLeftIcon,
+    ChevronRightIcon,
+    XMarkIcon
 } from '@heroicons/react/24/outline';
 import { Publication } from '@/types/publication';
 import { PublicationPageConfig } from '@/types/page';
@@ -21,9 +29,201 @@ interface PublicationsListProps {
     config: PublicationPageConfig;
     publications: Publication[];
     embedded?: boolean;
+    compactHeader?: boolean;
+    showControls?: boolean;
+    defaultExpandPresentations?: boolean;
+    headerAction?: ReactNode;
 }
 
-export default function PublicationsList({ config, publications, embedded = false }: PublicationsListProps) {
+function MathMarkdown({ children, className }: { children: string; className?: string }) {
+    return (
+        <div className={className}>
+            <ReactMarkdown
+                remarkPlugins={[remarkMath]}
+                rehypePlugins={[rehypeKatex]}
+                components={{
+                    p: ({ children: paragraphChildren }) => <p className="mb-2 last:mb-0">{paragraphChildren}</p>,
+                }}
+            >
+                {children}
+            </ReactMarkdown>
+        </div>
+    );
+}
+
+function PresentationGallery({ images, slideTitles, captions, title }: { images: string[]; slideTitles?: string[]; captions?: string[]; title: string }) {
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+    const currentImage = images[currentIndex];
+    const currentSlideTitle = slideTitles?.[currentIndex];
+    const currentCaption = captions?.[currentIndex];
+
+    useEffect(() => {
+        if (!isLightboxOpen) return;
+
+        const handleKeyDown = (event: KeyboardEvent) => {
+            if (event.key === 'Escape') setIsLightboxOpen(false);
+            if (event.key === 'ArrowLeft') {
+                setCurrentIndex((index) => index === 0 ? images.length - 1 : index - 1);
+            }
+            if (event.key === 'ArrowRight') {
+                setCurrentIndex((index) => index === images.length - 1 ? 0 : index + 1);
+            }
+        };
+
+        const originalOverflow = document.body.style.overflow;
+        document.body.style.overflow = 'hidden';
+        window.addEventListener('keydown', handleKeyDown);
+
+        return () => {
+            document.body.style.overflow = originalOverflow;
+            window.removeEventListener('keydown', handleKeyDown);
+        };
+    }, [images.length, isLightboxOpen]);
+
+    return (
+        <>
+            <div className="overflow-hidden rounded-lg bg-neutral-100 dark:bg-neutral-900">
+                <div className="relative">
+                    <button
+                        type="button"
+                        onClick={() => setIsLightboxOpen(true)}
+                        className="relative block aspect-video w-full cursor-zoom-in"
+                        aria-label={`Enlarge presentation image ${currentIndex + 1}`}
+                    >
+                        <Image
+                            src={`/papers/${currentImage}`}
+                            alt={currentCaption || `${title} presentation ${currentIndex + 1}`}
+                            fill
+                            className="object-contain"
+                            sizes="(max-width: 768px) 100vw, 720px"
+                        />
+                    </button>
+                    {images.length > 1 && (
+                        <>
+                            <button
+                                type="button"
+                                onClick={() => setCurrentIndex((index) => index === 0 ? images.length - 1 : index - 1)}
+                                className="absolute left-2 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-primary shadow-sm transition hover:bg-white dark:bg-neutral-950/80"
+                                aria-label="Previous presentation image"
+                            >
+                                <ChevronLeftIcon className="h-5 w-5" />
+                            </button>
+                            <button
+                                type="button"
+                                onClick={() => setCurrentIndex((index) => index === images.length - 1 ? 0 : index + 1)}
+                                className="absolute right-2 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-primary shadow-sm transition hover:bg-white dark:bg-neutral-950/80"
+                                aria-label="Next presentation image"
+                            >
+                                <ChevronRightIcon className="h-5 w-5" />
+                            </button>
+                            <div className="absolute bottom-2 left-1/2 flex -translate-x-1/2 gap-1.5">
+                                {images.map((image, index) => (
+                                    <button
+                                        key={`${image}-${index}`}
+                                        type="button"
+                                        onClick={() => setCurrentIndex(index)}
+                                        className={`h-2 w-2 rounded-full transition ${index === currentIndex ? 'bg-accent' : 'bg-neutral-400/70 hover:bg-neutral-500'}`}
+                                        aria-label={`Show presentation image ${index + 1}`}
+                                    />
+                                ))}
+                            </div>
+                        </>
+                    )}
+                </div>
+                {(currentSlideTitle || currentCaption) && (
+                    <div className="border-t border-neutral-200 px-4 py-3 text-center dark:border-neutral-700">
+                        {currentSlideTitle && (
+                            <MathMarkdown className="mb-2 font-semibold text-primary">
+                                {currentSlideTitle}
+                            </MathMarkdown>
+                        )}
+                        {currentCaption && (
+                            <MathMarkdown className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
+                                {currentCaption}
+                            </MathMarkdown>
+                        )}
+                    </div>
+                )}
+            </div>
+
+            <AnimatePresence>
+                {isLightboxOpen && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        onClick={() => setIsLightboxOpen(false)}
+                        className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 p-4 backdrop-blur-sm"
+                        role="dialog"
+                        aria-modal="true"
+                        aria-label={`${title} enlarged presentation image`}
+                    >
+                        <button
+                            type="button"
+                            onClick={() => setIsLightboxOpen(false)}
+                            className="absolute right-4 top-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white/15 text-white transition hover:bg-white/25"
+                            aria-label="Close enlarged image"
+                        >
+                            <XMarkIcon className="h-6 w-6" />
+                        </button>
+
+                        <div
+                            onClick={(event) => event.stopPropagation()}
+                            className="relative h-[90vh] w-[94vw] max-w-7xl"
+                        >
+                            <Image
+                                src={`/papers/${currentImage}`}
+                                alt={currentCaption || `${title} presentation ${currentIndex + 1}`}
+                                fill
+                                className="object-contain"
+                                sizes="94vw"
+                                priority
+                            />
+                        </div>
+
+                        {images.length > 1 && (
+                            <>
+                                <button
+                                    type="button"
+                                    onClick={(event) => {
+                                        event.stopPropagation();
+                                        setCurrentIndex((index) => index === 0 ? images.length - 1 : index - 1);
+                                    }}
+                                    className="absolute left-4 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/15 text-white transition hover:bg-white/25"
+                                    aria-label="Previous enlarged image"
+                                >
+                                    <ChevronLeftIcon className="h-6 w-6" />
+                                </button>
+                                <button
+                                    type="button"
+                                    onClick={(event) => {
+                                        event.stopPropagation();
+                                        setCurrentIndex((index) => index === images.length - 1 ? 0 : index + 1);
+                                    }}
+                                    className="absolute right-4 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/15 text-white transition hover:bg-white/25"
+                                    aria-label="Next enlarged image"
+                                >
+                                    <ChevronRightIcon className="h-6 w-6" />
+                                </button>
+                            </>
+                        )}
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </>
+    );
+}
+
+export default function PublicationsList({
+    config,
+    publications,
+    embedded = false,
+    compactHeader = false,
+    showControls = true,
+    defaultExpandPresentations = false,
+    headerAction
+}: PublicationsListProps) {
     const messages = useMessages();
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedYear, setSelectedYear] = useState<number | 'all'>('all');
@@ -31,6 +231,33 @@ export default function PublicationsList({ config, publications, embedded = fals
     const [showFilters, setShowFilters] = useState(false);
     const [expandedBibtexId, setExpandedBibtexId] = useState<string | null>(null);
     const [expandedAbstractId, setExpandedAbstractId] = useState<string | null>(null);
+    const [expandedPresentationIds, setExpandedPresentationIds] = useState<Set<string>>(
+        () => new Set(
+            defaultExpandPresentations
+                ? publications
+                    .filter((pub) => pub.presentation || (pub.presentationImages && pub.presentationImages.length > 0))
+                    .map((pub) => pub.id)
+                : []
+        )
+    );
+
+    const togglePresentation = (publicationId: string) => {
+        setExpandedPresentationIds((currentIds) => {
+            const nextIds = new Set(currentIds);
+            if (nextIds.has(publicationId)) {
+                nextIds.delete(publicationId);
+            } else {
+                nextIds.add(publicationId);
+            }
+            return nextIds;
+        });
+    };
+
+    const getPublicationUrl = (pub: Publication) => {
+        if (pub.url) return pub.url;
+        if (pub.doi) return `https://doi.org/${pub.doi}`;
+        return null;
+    };
 
     // Extract unique years and types for filters
     const years = useMemo(() => {
@@ -59,14 +286,23 @@ export default function PublicationsList({ config, publications, embedded = fals
         });
     }, [publications, searchQuery, selectedYear, selectedType]);
 
+    const titleClassName = `${embedded || compactHeader ? "text-2xl" : "text-4xl"} font-serif font-bold text-primary ${config.description ? "mb-4" : ""}`;
+
     return (
         <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
         >
-            <div className="mb-8">
-                <h1 className={`${embedded ? "text-2xl" : "text-4xl"} font-serif font-bold text-primary mb-4`}>{config.title}</h1>
+            <div className={showControls ? "mb-8" : "mb-4"}>
+                <div className="flex items-center justify-between gap-4">
+                    {embedded || compactHeader ? (
+                        <h2 className={titleClassName}>{config.title}</h2>
+                    ) : (
+                        <h1 className={titleClassName}>{config.title}</h1>
+                    )}
+                    {headerAction}
+                </div>
                 {config.description && (
                     <p className={`${embedded ? "text-base" : "text-lg"} text-neutral-600 dark:text-neutral-500 max-w-2xl`}>
                         {config.description}
@@ -75,7 +311,7 @@ export default function PublicationsList({ config, publications, embedded = fals
             </div>
 
             {/* Search and Filter Controls */}
-            <div className="mb-8 space-y-4">
+            {showControls && <div className="mb-8 space-y-4">
                 {/* ... (keep existing controls) ... */}
                 <div className="flex flex-col sm:flex-row gap-4">
                     <div className="relative flex-grow">
@@ -182,7 +418,7 @@ export default function PublicationsList({ config, publications, embedded = fals
                         </motion.div>
                     )}
                 </AnimatePresence>
-            </div>
+            </div>}
 
             {/* Publications Grid */}
             <div className="space-y-6">
@@ -191,7 +427,11 @@ export default function PublicationsList({ config, publications, embedded = fals
                         {messages.publications.noResults}
                     </div>
                 ) : (
-                    filteredPublications.map((pub, index) => (
+                    filteredPublications.map((pub, index) => {
+                        const publicationUrl = getPublicationUrl(pub);
+                        const urlLabel = pub.url?.includes('arxiv.org') ? 'arXiv' : 'Link';
+
+                        return (
                         <motion.div
                             key={pub.id}
                             initial={{ opacity: 0, y: 20 }}
@@ -214,9 +454,22 @@ export default function PublicationsList({ config, publications, embedded = fals
                                     </div>
                                 )}
                                 <div className="flex-grow">
-                                    <h3 className={`${embedded ? "text-lg" : "text-xl"} font-semibold text-primary mb-2 leading-tight`}>
-                                        <FormattedBibTeXText nodes={pub.titleNodes} fallback={pub.title} />
-                                    </h3>
+                                    {publicationUrl ? (
+                                        <a
+                                            href={publicationUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-block hover:text-accent transition-colors"
+                                        >
+                                            <h3 className={`${embedded ? "text-lg" : "text-xl"} font-semibold text-primary mb-2 leading-tight`}>
+                                                <FormattedBibTeXText nodes={pub.titleNodes} fallback={pub.title} />
+                                            </h3>
+                                        </a>
+                                    ) : (
+                                        <h3 className={`${embedded ? "text-lg" : "text-xl"} font-semibold text-primary mb-2 leading-tight`}>
+                                            <FormattedBibTeXText nodes={pub.titleNodes} fallback={pub.title} />
+                                        </h3>
+                                    )}
                                     <p className={`${embedded ? "text-sm" : "text-base"} text-neutral-600 dark:text-neutral-400 mb-2`}>
                                         {pub.authors.map((author, idx) => (
                                             <span key={idx}>
@@ -241,6 +494,30 @@ export default function PublicationsList({ config, publications, embedded = fals
                                     )}
 
                                     <div className="flex flex-wrap gap-2 mt-auto">
+                                        {(pub.presentation || (pub.presentationImages && pub.presentationImages.length > 0)) && (
+                                            <button
+                                                onClick={() => togglePresentation(pub.id)}
+                                                className={cn(
+                                                    "inline-flex items-center px-3 py-1 rounded-md text-xs font-medium transition-colors",
+                                                    expandedPresentationIds.has(pub.id)
+                                                        ? "bg-accent text-white"
+                                                        : "bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white"
+                                                )}
+                                            >
+                                                <PhotoIcon className="h-3 w-3 mr-1.5" />
+                                                Presentation
+                                            </button>
+                                        )}
+                                        {pub.url && (
+                                            <a
+                                                href={pub.url}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-accent hover:text-white transition-colors"
+                                            >
+                                                {urlLabel}
+                                            </a>
+                                        )}
                                         {pub.doi && (
                                             <a
                                                 href={`https://doi.org/${pub.doi}`}
@@ -292,6 +569,31 @@ export default function PublicationsList({ config, publications, embedded = fals
                                     </div>
 
                                     <AnimatePresence>
+                                        {expandedPresentationIds.has(pub.id) ? (
+                                            <motion.div
+                                                key="presentation"
+                                                initial={{ opacity: 0, height: 0 }}
+                                                animate={{ opacity: 1, height: 'auto' }}
+                                                exit={{ opacity: 0, height: 0 }}
+                                                className="overflow-hidden mt-4"
+                                            >
+                                                <div className="space-y-4 rounded-lg border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-700 dark:bg-neutral-800">
+                                                    {pub.presentation && (
+                                                        <MathMarkdown className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
+                                                            {pub.presentation}
+                                                        </MathMarkdown>
+                                                    )}
+                                                    {pub.presentationImages && pub.presentationImages.length > 0 && (
+                                                        <PresentationGallery
+                                                            images={pub.presentationImages}
+                                                            slideTitles={pub.presentationTitles}
+                                                            captions={pub.presentationCaptions}
+                                                            title={pub.title}
+                                                        />
+                                                    )}
+                                                </div>
+                                            </motion.div>
+                                        ) : null}
                                         {expandedAbstractId === pub.id && pub.abstract ? (
                                             <motion.div
                                                 key="abstract"
@@ -336,7 +638,8 @@ export default function PublicationsList({ config, publications, embedded = fals
                                 </div>
                             </div>
                         </motion.div>
-                    ))
+                        );
+                    })
                 )}
             </div>
         </motion.div>

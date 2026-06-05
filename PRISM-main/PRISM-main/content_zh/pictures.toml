@@ -43,31 +43,31 @@ content = """
 """
 tags = ["Trip"]
 
-[[items]]
-title = "重庆，中国，2025 年 7 月"
-subtitle = "第 44 届中国控制会议（2025）"
-date = "2025.07"
-pinned = true
-content = """
-![CCC 2025](/CCC1.jpg)
-![CCC 2025](/CCC0.jpg)
-![CCC 2025](/CCC2.jpg)
-![CCC 2025](/CCC3.jpg)
-"""
-tags = ["Conference"]
+# [[items]]
+# title = "重庆，中国，2025 年 7 月"
+# subtitle = "第 44 届中国控制会议（2025）"
+# date = "2025.07"
+# pinned = true
+# content = """
+# ![CCC 2025](/CCC1.jpg)
+# ![CCC 2025](/CCC0.jpg)
+# ![CCC 2025](/CCC2.jpg)
+# ![CCC 2025](/CCC3.jpg)
+# """
+# tags = ["Conference"]
 
-[[items]]
-title = "上海，中国，2025 年 11 月"
-subtitle = "2025 第二届全国集群智能挑战赛"
-date = "2025.11"
-pinned = true
-content = """
-![卓翼杯](/Zhuoyicup2.jpg)
-![卓翼杯](/Zhuoyicup3.jpg)
-![卓翼杯](/Zhuoyicup4.jpg)
-![卓翼杯](/Zhuoyicup1.jpg)
-"""
-tags = ["Conference"]
+# [[items]]
+# title = "上海，中国，2025 年 11 月"
+# subtitle = "2025 第二届全国集群智能挑战赛"
+# date = "2025.11"
+# pinned = true
+# content = """
+# ![卓翼杯](/Zhuoyicup2.jpg)
+# ![卓翼杯](/Zhuoyicup3.jpg)
+# ![卓翼杯](/Zhuoyicup4.jpg)
+# ![卓翼杯](/Zhuoyicup1.jpg)
+# """
+# tags = ["Conference"]
 
 [[items]]
 title = "香港，中国，2024 年 6 月"
@@ -82,15 +82,16 @@ content = """
 """
 tags = ["Trip"]
 
-[[items]]
-title = "深圳，中国，2020–2024"
-subtitle = "在哈尔滨工业大学（深圳）的本科回忆。"
-date = "2020–2024"
-content = """
-![本科](/Benke1.jpg)
-![本科](/Benke2.jpg)
-![本科](/Benke3.jpg)
-![本科](/Benke4.jpg)
-![本科](/Benke5.jpg)
-"""
-tags = ["Undergraduate"]
+#[[items]]
+#title = "深圳，中国，2020–2024"
+#subtitle = "在哈尔滨工业大学（深圳）的本科回忆。"
+#date = "2020–2024"
+#content = """
+#![本科](/Benke1.jpg)
+#![本科](/Benke2.jpg)
+#![本科](/Benke3.jpg)
+#![本科](/Benke4.jpg)
+#
+#"""
+# ![本科](/Benke5.jpg)
+#tags = ["Undergraduate"]

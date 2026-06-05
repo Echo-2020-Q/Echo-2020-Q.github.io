@@ -2,16 +2,4 @@ type = "card"
 title = "阶段进展"
 description = "学术路径中的阶段性成果与科研进展。"
 
-[[items]]
-title = "Physica A 论文发表"
-subtitle = "空间博弈中的合作恢复机制"
-date = "2026"
-content = "论文“Recovering Cooperation in Spatial Prisoner's Dilemma via a Forced Loner Mechanism”发表于 *Physica A: Statistical Mechanics and its Applications*。"
-tags = ["论文", "Physica A"]
 
-[[items]]
-title = "中国控制会议论文"
-subtitle = "三方演化博弈分析"
-date = "2025"
-content = "围绕“围魏救赵”策略的三方演化博弈分析完成会议论文工作，并发表于第 44 届中国控制会议。"
-tags = ["会议", "演化博弈"]

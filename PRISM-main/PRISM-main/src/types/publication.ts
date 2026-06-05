@@ -50,6 +50,10 @@ export interface Publication {
   featured?: boolean;
   selected?: boolean;
   preview?: string;
+  presentation?: string;
+  presentationImages?: string[];
+  presentationTitles?: string[];
+  presentationCaptions?: string[];
   summary?: string;
   researchArea: ResearchArea;
   description?: string;

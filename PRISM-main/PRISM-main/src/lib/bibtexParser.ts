@@ -63,6 +63,10 @@ export function parseBibTeX(bibtexContent: string, locale?: string): Publication
     // Parse preview field (remove braces if present)
     const preview = tags.preview?.replace(/[{}]/g, '');
     const title = parseBibTeXInline(tags.title || 'Untitled');
+    const archivePrefix = tags.archivePrefix || tags.archiveprefix;
+    const preprintJournal = archivePrefix && tags.eprint
+      ? `${archivePrefix} preprint ${archivePrefix}:${tags.eprint}`
+      : undefined;
 
     // Create publication object
     const publication: Publication = {
@@ -79,7 +83,7 @@ export function parseBibTeX(bibtexContent: string, locale?: string): Publication
       researchArea: detectResearchArea(tags.title, keywords),
 
       // Optional fields
-      journal: cleanBibTeXString(tags.journal),
+      journal: cleanBibTeXString(tags.journal) || preprintJournal,
       conference: cleanBibTeXString(tags.booktitle),
       volume: tags.volume,
       issue: tags.number,
@@ -91,9 +95,20 @@ export function parseBibTeX(bibtexContent: string, locale?: string): Publication
       description: cleanBibTeXString(tags.description || tags.note),
       selected,
       preview,
+      presentation: cleanBibTeXString(tags.presentation),
+      presentationImages: tags.presentation_images
+        ?.split(',')
+        .map((image: string) => cleanBibTeXString(image).trim())
+        .filter(Boolean),
+      presentationTitles: tags.presentation_titles
+        ?.split('||')
+        .map((title: string) => cleanBibTeXString(title).trim()),
+      presentationCaptions: tags.presentation_captions
+        ?.split('||')
+        .map((caption: string) => cleanBibTeXString(caption).trim()),
 
       // Store original BibTeX (excluding custom fields)
-      bibtex: reconstructBibTeX(entry, ['selected', 'preview', 'description', 'keywords', 'code']),
+      bibtex: reconstructBibTeX(entry, ['selected', 'preview', 'description', 'keywords', 'code', 'presentation', 'presentation_images', 'presentation_titles', 'presentation_captions']),
     };
 
     // Clean up undefined fields
