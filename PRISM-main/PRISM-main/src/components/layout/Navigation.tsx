@@ -53,6 +53,10 @@ export default function Navigation({
     return siteTitleByLocale?.[resolvedLocale] || siteTitleByLocale?.[i18n.defaultLocale] || siteTitle;
   }, [i18n.defaultLocale, resolvedLocale, siteTitle, siteTitleByLocale]);
 
+  // GitHub Pages must load the exported HTML directly. In local development,
+  // /index.html is interpreted as a dynamic route, so keep / there.
+  const homeHref = process.env.NODE_ENV === 'production' ? '/index.html' : '/';
+
   useEffect(() => {
     const handleScroll = () => {
       const isScrolled = window.scrollY > 20;
@@ -122,7 +126,7 @@ export default function Navigation({
   const getDesktopItemHref = (item: SiteConfig['navigation'][number]) =>
     enableOnePageMode
       ? `/#${item.target}`
-      : item.href;
+      : (item.href === '/' ? homeHref : item.href);
 
   const activeItem = effectiveItems.find((item) => isDesktopItemActive(item)) ?? null;
   const activeHref = activeItem ? getDesktopItemHref(activeItem) : null;
@@ -181,7 +185,7 @@ export default function Navigation({
                   className="flex-shrink-0"
                 >
                   <a
-                    href="/"
+                    href={homeHref}
                     className="text-xl lg:text-2xl font-serif font-semibold text-primary hover:text-accent transition-colors duration-200"
                   >
                     {effectiveSiteTitle}
@@ -288,7 +292,7 @@ export default function Navigation({
 
                       const href = enableOnePageMode
                         ? (item.href === '/' ? '/' : `/#${item.target}`)
-                        : item.href;
+                        : (item.href === '/' ? homeHref : item.href);
 
                       return (
                         <motion.div
