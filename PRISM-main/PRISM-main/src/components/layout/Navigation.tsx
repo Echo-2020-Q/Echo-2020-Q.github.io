@@ -117,11 +117,13 @@ export default function Navigation({
     enableOnePageMode
       ? activeHash === `#${item.target}` || (!activeHash && item.target === 'about')
       : (item.href === '/'
-        ? pathname === '/'
+        ? pathname === '/' || pathname === '/index.html'
         : pathname.startsWith(item.href));
 
   const getDesktopItemHref = (item: SiteConfig['navigation'][number]) =>
-    enableOnePageMode ? `/#${item.target}` : item.href;
+    enableOnePageMode
+      ? `/#${item.target}`
+      : item.href;
 
   const activeItem = effectiveItems.find((item) => isDesktopItemActive(item)) ?? null;
   const activeHref = activeItem ? getDesktopItemHref(activeItem) : null;
@@ -179,12 +181,12 @@ export default function Navigation({
                   whileTap={{ scale: 0.95 }}
                   className="flex-shrink-0"
                 >
-                  <Link
+                  <a
                     href="/"
                     className="text-xl lg:text-2xl font-serif font-semibold text-primary hover:text-accent transition-colors duration-200"
                   >
                     {effectiveSiteTitle}
-                  </Link>
+                  </a>
                 </motion.div>
 
                 <div className="hidden lg:block">
@@ -225,8 +227,15 @@ export default function Navigation({
                             key={item.target}
                             href={href}
                             data-nav-href={href}
-                            prefetch={true}
-                            onClick={() => enableOnePageMode && setActiveHash(`#${item.target}`)}
+                            prefetch={item.href !== '/'}
+                            onClick={(event) => {
+                              if (!enableOnePageMode && item.href === '/') {
+                                event.preventDefault();
+                                window.location.assign('/');
+                                return;
+                              }
+                              if (enableOnePageMode) setActiveHash(`#${item.target}`);
+                            }}
                             onMouseEnter={() => setHoveredHref(href)}
                             className={cn(
                               'relative px-3 py-2 text-sm font-medium rounded-lg transition-colors duration-150',
@@ -281,9 +290,9 @@ export default function Navigation({
                   <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                     {effectiveItems.map((item, index) => {
                       const isActive = enableOnePageMode
-                        ? (item.href === '/' ? pathname === '/' && !activeHash : activeHash === `#${item.target}`)
+                        ? (item.href === '/' ? (pathname === '/' || pathname === '/index.html') && !activeHash : activeHash === `#${item.target}`)
                         : (item.href === '/'
-                          ? pathname === '/'
+                          ? pathname === '/' || pathname === '/index.html'
                           : pathname.startsWith(item.href));
 
                       const href = enableOnePageMode
@@ -300,8 +309,15 @@ export default function Navigation({
                           <Disclosure.Button
                             as={Link}
                             href={href}
-                            prefetch={true}
-                            onClick={() => enableOnePageMode && setActiveHash(item.href === '/' ? '' : `#${item.target}`)}
+                            prefetch={item.href !== '/'}
+                            onClick={(event) => {
+                              if (!enableOnePageMode && item.href === '/') {
+                                event.preventDefault();
+                                window.location.assign('/');
+                                return;
+                              }
+                              if (enableOnePageMode) setActiveHash(item.href === '/' ? '' : `#${item.target}`);
+                            }}
                             className={cn(
                               'block px-3 py-2 rounded-md text-base font-medium transition-all duration-200',
                               isActive
