@@ -1,34 +1,33 @@
-cd E:\Project\Echo-2020-Q.github.io\PRISM-main\PRISM-main
-npm run dev
+本地预览：
 
-可以，cmd 里也可以运行。命令稍微换一下写法即可。
-
-在 cmd 里依次运行：
-
+```cmd
 cd /d E:\Project\Echo-2020-Q.github.io\PRISM-main\PRISM-main
-npm install
-npm run build
-然后复制构建结果到仓库根目录：
+npm run dev
+```
 
+构建并复制最新静态网页到 GitHub Pages 仓库根目录：
+
+```cmd
+cd /d E:\Project\Echo-2020-Q.github.io\PRISM-main\PRISM-main
+npm run deploy:pages
+```
+
+提交并推送：
+
+```cmd
 cd /d E:\Project\Echo-2020-Q.github.io
-xcopy PRISM-main\PRISM-main\out\* . /E /I /Y
-type nul > .nojekyll
-最后提交并推送：
-
 git add .
 git commit -m "Deploy PRISM personal website"
 git push origin main
-如果你的默认分支不是 main，先查一下：
+```
 
-git branch
-看到前面带 * 的就是当前分支。一般你的仓库应该是 main。
+每次修改 `content` 或 `src` 后，都必须重新运行 `npm run deploy:pages`。GitHub Pages 展示的是仓库根目录中的静态 HTML，而不是开发服务器实时读取的源文件。
 
 
 cd /d E:\Project\Echo-2020-Q.github.io\PRISM-main\PRISM-main
-npm run build
+npm run deploy:pages
+
 cd /d E:\Project\Echo-2020-Q.github.io
-xcopy PRISM-main\PRISM-main\out\* . /E /I /Y
-type nul > .nojekyll
 git add .
-git commit -m "Deploy PRISM personal website"
+git commit -m "Update publication journal and static website"
 git push origin main
