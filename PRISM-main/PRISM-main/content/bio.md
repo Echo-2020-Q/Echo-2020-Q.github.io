@@ -7,4 +7,4 @@ I am especially interested in understanding how AI can promote cooperation in hu
 I hope my research can contribute to a deeper scientific understanding of cooperation in human society.
 If you think we share similar interests, [feel free to reach out](mailto:qyh_2024@sjtu.edu.cn) for discussion~ 
 
-Here is my [CV](/main_short.pdf). I am currently seeking Ph.D. opportunities in cooperation, artificial intelligence, evolutionary game theory, and human-AI interaction.
+Here is my [CV](/main_short.pdf). I am currently seeking Ph.D. opportunities in cooperation, human-AI interaction, evolutionary game theory, and artificial intelligence.
