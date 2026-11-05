@@ -17,7 +17,12 @@ export default function Footer({ lastUpdated, lastUpdatedByLocale, defaultLocale
     lastUpdatedByLocale?.[locale] ||
     (defaultLocale ? lastUpdatedByLocale?.[defaultLocale] : undefined) ||
     lastUpdated ||
-    new Date().toLocaleDateString(locale || 'en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+    new Date(process.env.NEXT_PUBLIC_BUILD_TIMESTAMP!).toLocaleDateString(locale || 'en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      timeZone: 'Asia/Shanghai',
+    });
 
   return (
     <footer className="border-t border-neutral-200/50 bg-neutral-50/50 dark:bg-neutral-900/50 dark:border-neutral-700/50">
