@@ -38,6 +38,7 @@ export interface LocaleMessages {
     year: string;
     type: string;
     noResults: string;
+    accepted: string;
     abstract: string;
     bibtex: string;
     code: string;
@@ -88,6 +89,7 @@ const en: LocaleMessages = {
     year: 'Year',
     type: 'Type',
     noResults: 'No publications found matching your criteria.',
+    accepted: 'Accepted',
     abstract: 'Abstract',
     bibtex: 'BibTeX',
     code: 'Code',
@@ -138,6 +140,7 @@ const zh: LocaleMessages = {
     year: '年份',
     type: '类型',
     noResults: '没有找到符合条件的论文。',
+    accepted: '已接收',
     abstract: '摘要',
     bibtex: 'BibTeX',
     code: '代码',

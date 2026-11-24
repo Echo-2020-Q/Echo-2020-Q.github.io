@@ -11,7 +11,7 @@ tags = ["Manuscript", "Q-learning"]
 
 [[items]]
 title = "Network Common-Pool Resource Games"
-subtitle = "Future paper branch"
-date = "From 2026.12"
-content = "A planned long-form paper direction on reinforcement learning and cooperation mechanisms."
-tags = ["Future Work", "Reinforcement Learning"]
+subtitle = "Accepted by Information Processing and Management"
+date = "2026.11"
+content = "Exploring cooperation mechanisms via deep reinforcement learning in network common-pool resource games. Accepted for publication in Information Processing and Management."
+tags = ["Accepted", "Deep Reinforcement Learning"]

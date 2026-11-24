@@ -77,7 +77,7 @@ export function parseBibTeX(bibtexContent: string, locale?: string): Publication
       year,
       month: monthMapping[tags.month?.toLowerCase()] ? String(month) : tags.month,
       type,
-      status: 'published',
+      status: tags.status === 'accepted' ? 'accepted' : 'published',
       tags: keywords,
       keywords,
       researchArea: detectResearchArea(tags.title, keywords),
@@ -108,7 +108,7 @@ export function parseBibTeX(bibtexContent: string, locale?: string): Publication
         .map((caption: string) => cleanBibTeXString(caption).trim()),
 
       // Store original BibTeX (excluding custom fields)
-      bibtex: reconstructBibTeX(entry, ['selected', 'preview', 'description', 'keywords', 'code', 'presentation', 'presentation_images', 'presentation_titles', 'presentation_captions']),
+      bibtex: reconstructBibTeX(entry, ['status', 'selected', 'preview', 'description', 'keywords', 'code', 'presentation', 'presentation_images', 'presentation_titles', 'presentation_captions']),
     };
 
     // Clean up undefined fields

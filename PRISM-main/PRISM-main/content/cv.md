@@ -10,7 +10,7 @@
 
 **Current Research Rhythm**, *2026.05 - Present*
 - Balancing manuscript development, reading, and international communication preparation.
-- Preparing future work on reinforcement learning in network common-pool resource games.
+- Our paper on deep reinforcement learning in network common-pool resource games was accepted for publication in Information Processing and Management in November 2026.
 
 **Applied Mathematical Modelling Manuscript**, *2025.10 - 2026.05*
 - Drafting and revising work on a tripartite intervention-conflict game with frequency-adjusted Q-learning.
@@ -26,5 +26,6 @@
 
 ## Selected Publications
 
+- Y. Qin, J. Zou, and L. Wang. "Exploring cooperation mechanisms via deep reinforcement learning in network common-pool resource games." *Information Processing and Management*, accepted, 2026.
 - Y. Qin, H. Chen, and L. Wang. "Recovering Cooperation in Spatial Prisoner's Dilemma via a Forced Loner Mechanism." *Physica A: Statistical Mechanics and its Applications*, 2026.
 - Y. Qin, H. Chen, and L. Wang. "An Tripartite Evolutionary Game Analysis of the \"Siege Wei to Rescue Zhao\" Strategy." *2025 44th Chinese Control Conference*, Chongqing, China.

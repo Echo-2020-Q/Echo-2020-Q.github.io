@@ -485,6 +485,11 @@ export default function PublicationsList({
                                     </p>
                                     <p className="text-sm font-medium text-neutral-800 dark:text-neutral-600 mb-3">
                                         {pub.journal || pub.conference} {pub.year}
+                                        {pub.status === 'accepted' && (
+                                            <span className="ml-2 text-accent">
+                                                ({messages.publications.accepted})
+                                            </span>
+                                        )}
                                     </p>
 
                                     {pub.description && (

@@ -11,7 +11,7 @@ tags = ["稿件", "Q-learning"]
 
 [[items]]
 title = "网络公共资源博弈"
-subtitle = "未来论文支线"
-date = "计划自 2026.12 起"
-content = "作为下一阶段的长线论文方向，关注强化学习与合作机制。"
-tags = ["未来工作", "强化学习"]
+subtitle = "已被 Information Processing and Management 接收"
+date = "2026.11"
+content = "论文《Exploring cooperation mechanisms via deep reinforcement learning in network common-pool resource games》已被 Information Processing and Management 接收。"
+tags = ["已接收", "深度强化学习"]

@@ -39,7 +39,7 @@ tags = ["Language", "Academic Writing"]
 
 [[items]]
 title = "Network Common-Pool Resource Games"
-subtitle = "Future paper direction"
-date = "From 2026.12"
-content = "Exploring cooperation mechanisms via reinforcement learning in network common-pool resource games."
-tags = ["Next Paper", "Reinforcement Learning", "Multi-Agent Systems"]
+subtitle = "Accepted by Information Processing and Management"
+date = "2026.11"
+content = "Exploring cooperation mechanisms via deep reinforcement learning in network common-pool resource games. Accepted for publication in Information Processing and Management."
+tags = ["Accepted", "Deep Reinforcement Learning", "Multi-Agent Systems"]

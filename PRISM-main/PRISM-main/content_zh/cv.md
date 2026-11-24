@@ -10,7 +10,7 @@
 
 **当前研究节奏**，*2026.05 - 至今*
 - 并行推进论文工作、阅读积累和国际交流能力准备。
-- 准备围绕网络公共资源博弈中的强化学习合作机制展开后续研究。
+- 关于网络公共资源博弈中深度强化学习合作机制的论文于 2026 年 11 月被 Information Processing and Management 接收。
 
 **Applied Mathematical Modelling 稿件**，*2025.10 - 2026.05*
 - 围绕 frequency-adjusted Q-learning 与三方 intervention-conflict game 开展撰写、修改和内容整合。
@@ -26,5 +26,6 @@
 
 ## 代表论文
 
+- Y. Qin, J. Zou, and L. Wang. "Exploring cooperation mechanisms via deep reinforcement learning in network common-pool resource games." *Information Processing and Management*，已接收，2026。
 - Y. Qin, H. Chen, and L. Wang. "Recovering Cooperation in Spatial Prisoner's Dilemma via a Forced Loner Mechanism." *Physica A: Statistical Mechanics and its Applications*, 2026.
 - Y. Qin, H. Chen, and L. Wang. "An Tripartite Evolutionary Game Analysis of the \"Siege Wei to Rescue Zhao\" Strategy." *2025 44th Chinese Control Conference*, Chongqing, China.

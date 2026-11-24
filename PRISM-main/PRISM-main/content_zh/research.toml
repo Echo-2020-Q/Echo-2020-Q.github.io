@@ -39,7 +39,7 @@ tags = ["语言", "学术写作"]
 
 [[items]]
 title = "网络公共资源博弈"
-subtitle = "未来论文方向"
-date = "计划自 2026.12 起"
-content = "围绕强化学习在网络公共资源博弈中的合作机制开展下一阶段长线研究。"
-tags = ["下一篇论文", "强化学习", "多智能体系统"]
+subtitle = "已被 Information Processing and Management 接收"
+date = "2026.11"
+content = "论文《Exploring cooperation mechanisms via deep reinforcement learning in network common-pool resource games》已被 Information Processing and Management 接收。"
+tags = ["已接收", "深度强化学习", "多智能体系统"]
