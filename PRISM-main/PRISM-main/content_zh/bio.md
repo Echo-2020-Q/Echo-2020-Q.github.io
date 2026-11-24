@@ -1,4 +1,4 @@
-你好，我是秦一航，目前在[上海交通大学](https://www.sjtu.edu.cn/)[复杂网络与控制实验室](https://cnc.sjtu.edu.cn/)攻读硕士学位，导师是 [Lin Wang](https://cnc.sjtu.edu.cn/lwang.html) 教授。
+你好，我是秦一航，目前在[上海交通大学](https://www.sjtu.edu.cn/)[复杂网络与控制实验室](https://cnc.sjtu.edu.cn/)攻读硕士学位，导师是 [Lin Wang](https://cnc.sjtu.edu.cn/wanglin/) 教授。
 
 此前，我于 2024 年在[哈尔滨工业大学（深圳）](https://www.hitsz.edu.cn/)获得自动化专业学士学位，导师是 [Zilu Wang](https://homepage.hit.edu.cn/ZiluWANG?lang=en) 教授。
 
